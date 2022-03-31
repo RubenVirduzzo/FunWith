@@ -20,4 +20,13 @@ RSpec.describe User, type: :model do
             expect(user.valid?).to be false
         end
     end
+
+    context "when username field is empty" do
+        it 'returns false' do
+            user = User.create(fullname: "test", age: 25, email: "test@test.com")
+            expect(user.valid?).to be false
+        end
+    end
+
+   
 end
