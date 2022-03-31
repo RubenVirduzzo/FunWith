@@ -41,4 +41,11 @@ RSpec.describe User, type: :model do
             expect(user.valid?).to be false
         end
     end
+
+    context "when all fields stisfied the validations" do
+        it 'returns true' do
+            user = User.create(fullname: "test", username: "test", age: 25, email: "test@test.com")
+            expect(user.valid?).to be true
+        end
+    end
 end
