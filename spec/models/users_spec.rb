@@ -9,7 +9,14 @@ RSpec.describe User, type: :model do
 
     context "when fullname field is empty" do
         it 'returns false' do
-            user = User.create(username: "test_1", age: 25, email: "test@test.com")
+            user = User.create(username: "test", age: 25, email: "test@test.com")
+            expect(user.valid?).to be false
+        end
+    end
+
+    context "when fullname characters are overlength" do
+        it 'returns false' do
+            user = User.create(fullname: "test_test_test_test_test_test_test", username: "test", age: 25, email: "test@test.com")
             expect(user.valid?).to be false
         end
     end
