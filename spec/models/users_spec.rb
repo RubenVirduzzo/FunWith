@@ -35,4 +35,10 @@ RSpec.describe User, type: :model do
         end
     end
 
+    context "when email field has an invalid format" do
+        it 'returns false' do
+            user = User.create(fullname: "test", username: "test", age: 25, email: "testtest.com")
+            expect(user.valid?).to be false
+        end
+    end
 end
