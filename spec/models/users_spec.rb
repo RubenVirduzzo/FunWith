@@ -28,5 +28,11 @@ RSpec.describe User, type: :model do
         end
     end
 
-   
+    context "when age field is text" do
+        it 'returns false' do
+            user = User.create(fullname: "test", username: "test", age: "text", email: "test@test.com")
+            expect(user.valid?).to be false
+        end
+    end
+
 end
