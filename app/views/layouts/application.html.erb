@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+   
+    <nav class="container-fluid bg-dark bg-gradient">
+      <ul class="d-flex flex-row justify-content-around p-2">
+        <li class="nav-link"><a class="text-white nav-link" href="/">Home</a></li>
+        <li class="nav-link"><a class="text-white nav-link" href="/users/sign_in">Dashboard</a></li>
+        <li class="nav-link"><a class="text-white nav-link" href="/users/sign_in">Random</a></li>
+        <li class="nav-link"><a class="btn btn-primary" href="/users/sign_in">Sign in</a></li>
+        <li class="nav-link">
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="text-center">
+      <p class="notice"><%= notice %></p>
+      <p class="alert text-danger"><%= alert %></p>
+    </div>
     <%= yield %>
   </body>
 </html>
