@@ -1,4 +1,4 @@
-
+include ActiveSupport::Testing::TimeHelpers
 RSpec.describe User, type: :model do
 
     describe 'validations' do
@@ -8,7 +8,8 @@ RSpec.describe User, type: :model do
                 fullname: "test",
                 username: "test",
                 date_of_birth: Date.new(1991, 11, 26),
-                email: "ciao@ciao"
+                email: "ciao@ciao.com",
+                password: "123456"
             }
         end
 
@@ -23,7 +24,7 @@ RSpec.describe User, type: :model do
         end
 
         context "when fullname characters are overlength" do
-            let(:invalid_user_params) { valid_user_params.except(fullname: "test_test_test_test_test_test_test") }
+            let(:invalid_user_params) { valid_user_params.merge(fullname: "test_test_test_test_test_test_test") }
                 
             it 'data invalid' do
                 user = User.new(invalid_user_params)
@@ -40,28 +41,18 @@ RSpec.describe User, type: :model do
             end
         end
 
-        context "when date field is text" do
-            let(:invalid_user_params) { valid_user_params.except(date_of_birth: "1991,11,26") }
-                
-            it 'data invalid' do
-                user = User.new(invalid_user_params)
-                expect(user.valid?).to be false
-            end
-        end
-
         context "when date of birth is in a string format" do
 
-            let(:invalid_user_params) { valid_user_params.except(date_of_birth: "1991, 11, 26") }
+            let(:invalid_user_params) { valid_user_params.merge(date_of_birth: "1991, 11, 26") }
                 
             it 'data invalid' do
                 user = User.new(invalid_user_params)
                 expect(user.valid?).to be false
             end
         end
-
+        
         context "check if user is underage" do
             
-            let(:invalid_user_params) { valid_user_params.except(date_of_birth: Date.new(2006, 11, 26)) }
             
             before do
                 travel_to Time.new(invalid_user_params[:date_of_birth].to_i)
@@ -70,6 +61,8 @@ RSpec.describe User, type: :model do
             after do
                 travel_back
             end
+            
+            let(:invalid_user_params) { valid_user_params.merge(date_of_birth: Date.new(2004, 11, 26)) }
             
             it 'to equal 17' do
                 user = User.new(invalid_user_params)
@@ -81,10 +74,10 @@ RSpec.describe User, type: :model do
                 expect(user.underage?).to be true 
             end
         end
-
+        
         context "when email field has an invalid format" do
-            
-            let(:invalid_user_params) { valid_user_params.except(email: "poldo.com") }
+            let(:invalid_user_params) { valid_user_params.merge(email: "poldo.com") }
+
                 
             it 'data invalid' do
                 user = User.new(invalid_user_params)
