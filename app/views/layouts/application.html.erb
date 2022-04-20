@@ -16,9 +16,8 @@
       <ul class="d-flex flex-row justify-content-around p-2">
         <li class="nav-link"><a class="text-white nav-link" href="/">Home</a></li>
         <% if current_user %>
-          <li class="nav-link"><a class="text-white nav-link" href="/users/sign_in">Dashboard</a></li>
+          <li class="nav-link"><a class="text-white nav-link" href="/events">Your events</a></li>
         <% end %>
-        <li class="nav-link"><a class="text-white nav-link" href="/users/sign_in">Random</a></li>
         <% if !current_user %>   
         <li class="nav-link"><a class="btn btn-primary" href="/users/sign_in">Sign in</a></li>
         <% end %>
