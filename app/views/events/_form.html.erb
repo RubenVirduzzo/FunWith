@@ -13,7 +13,7 @@
         </ul>
       </div>
     <% end %>
-      <h1>New event</h1>
+      <h1>Event</h1>
       
       <div>
         <%= form.text_field :title, placeholder: "Title", class: "text-center m-3" %>
@@ -34,32 +34,27 @@
       </div>
 
       <div>
-        <%= form.label :place, style: "display: block" %>
-        <%= form.text_field :place %>
+        <%= form.text_field :place, placeholder: "Place", class: "text-center m-3" %>
       </div>
 
       <div>
-        <%= form.label :min_number_of_joiners, style: "display: block" %>
-        <%= form.text_field :min_number_of_joiners %>
+        <%= form.text_field :min_number_of_joiners, placeholder: "Min number of joiners", class: "text-center m-3" %>
       </div>
 
       <div>
-        <%= form.label :max_number_of_joiners, style: "display: block" %>
-        <%= form.text_field :max_number_of_joiners %>
+        <%= form.text_field :max_number_of_joiners, placeholder: "Max number of joiners", class: "text-center m-3" %>
       </div>
 
       <div>
-        <%= form.label :price, style: "display: block" %>
-        <%= form.text_field :price %>
+        <%= form.text_field :price, placeholder: "Price", class: "text-center m-3" %>
       </div>
 
       <div>
-        <%= form.label :min_age, style: "display: block" %>
-        <%= form.number_field :min_age %>
+        <%= form.number_field :min_age, placeholder: "Min age", class: "text-center m-3" %>
       </div>
 
-      <div>
-        <%= form.submit %>
+      <div class="m-3">
+        <%= form.submit class: "btn btn-primary" %>
       </div>
     </div>
   </section>
