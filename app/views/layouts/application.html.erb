@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application.css", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -14,24 +14,31 @@
    
     <nav class="container-fluid bg-dark bg-gradient">
       <ul class="d-flex flex-row justify-content-around p-2">
+        
+        <%= image_tag "FunWith.png", width: 60, height: 60 %>
         <li class="nav-link"><a class="text-white nav-link" href="/">Home</a></li>
         <% if current_user %>
           <li class="nav-link"><a class="text-white nav-link" href="/events">Your events</a></li>
+          <li class="nav-link"><a class="text-white nav-link" href="/users/<%= current_user.id %>">Profile</a></li>
         <% end %>
         <% if !current_user %>   
-        <li class="nav-link"><a class="btn btn-primary" href="/users/sign_in">Sign in</a></li>
+        <li class="nav-link"><a class="btn bg-logo text-white" href="/users/sign_in">Sign in</a></li>
         <% end %>
         <% if current_user %>  
           <li class="nav-link">
-            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>          
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-white" %>          
           </li>
         <% end %>
       </ul>
     </nav>
 
-    <div class="text-center">
-      <p class="notice"><%= notice %></p>
-      <p class="alert text-danger"><%= alert %></p>
+    <div class="d-flex justify-content-center text-center">
+      <% if notice %>  
+        <p class="notice bg-logo w-25 text-white"><%= notice %></p>
+      <% end %> 
+      <% if alert %>
+        <p class="alert bg-danger w-25 text-white"><%= alert %></p>
+      <% end %> 
     </div>
     <%= yield %>
   </body>

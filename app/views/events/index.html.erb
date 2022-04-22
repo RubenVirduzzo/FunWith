@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 <div class="containar-fluid text-center d-flex flex-column justify-content-center align-items-center">
-    <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
+    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
   <% if @events.first %>
     
     <% @events.each do |event| %>
-      <div id="events" class="bg-warning w-50 mt-5 p-4 rounded">
+      <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
           <h3> <%= event.title %> </h3>
           <p> <%= event.description %> </p>
           <h5> <%= event.date_event %> </h5>
