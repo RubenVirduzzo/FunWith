@@ -1,49 +1,19 @@
 <div class="body d-flex">
-  <% if user_session %>
-    <div class="nav-home bg-secondary text-center text-white w-25 h-100 p-4 ">
-      <ul>
-        <li class="btn btn-secondary nav-link border m-1 "><a class="text-white" href="">Events</a></li>
-        <li class="btn btn-secondary nav-link border m-1 rounded"><a class="text-white" href="">Users</a></li>
-      </ul>
-    </div>
+  <% if !user_session %>
     <div class="d-flex flex-column w-100 align-items-center">
-      <% if @users %>
-        <% @users.each do |user| %>
-              <div class="bg-logo text-center text-white w-25 mt-5 p-4 rounded">
-                  <h3> <%= user.fullname %> </h3>
-                  <p> <%= user.username %> </p>
-                  <h5> <%= user.email %> </h5>
-                  <a class="btn btn-secondary" href="/users/<%= user.id %>">View profile</a>
-              </div>
-        <% end %>
-      <% end %>
-    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <% else %>
-    <div class="d-flex flex-column w-100 align-items-center">
-      
       <%= image_tag "FunWith.png", width: 480, height: 480 %>
       <h3>Subscribe if you want to enjoy interesting and fun events near you!</h3>
       <li class="nav-link"><a class="btn bg-logo text-white" href="/users/sign_in">Sign in</a></li>
+    
     </div>
+
   <% end %>
+  <div class="nav-home bg-secondary text-center text-white w-25 h-100 p-4 ">
+      <ul>
+        <li class="btn btn-secondary nav-link border m-1 "><a class="text-white" href="/show_events">Events</a></li>
+        <li class="btn btn-secondary nav-link border m-1 rounded"><a class="text-white" href="/show_users">Users</a></li>
+      </ul>
+  </div>
   
 </div>
