@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :tags
+  namespace :admin do 
+    resources :tags
+  end
   resources :events
   resource :users
 

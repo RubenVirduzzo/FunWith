@@ -1,9 +1,8 @@
-class TagsController < ApplicationController
+class Admin::TagsController < ApplicationController
   before_action :set_tag, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :admin?
  
-
   def index
     @tags = Tag.all
   end
