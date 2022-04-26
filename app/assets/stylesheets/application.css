@@ -1,7 +1,36 @@
 input {
   outline: none;
+  border: none;
+  border-radius: 15px;
 }
 
 .form-div {
   background: #5d7a957a;
+}
+
+.bg-logo {
+  background: #00adb5;
+}
+
+.txt {
+  color: #00adb5;
+}
+
+.body {
+  height: 100vh;
+}
+
+.nav-home {
+  margin-top: -16px;
+  padding: 0;
+}
+
+.nav-home ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-home ul li a {
+  font-size: 30px;
+  font-weight: 600;
 }

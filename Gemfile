@@ -25,6 +25,8 @@ gem "bootsnap", require: false
 
 gem 'devise'
 
+gem 'sass-rails'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'

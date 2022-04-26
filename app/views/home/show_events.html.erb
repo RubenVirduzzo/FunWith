@@ -1,0 +1,30 @@
+<section class="body d-flex w-100">
+  <div class="nav-home bg-secondary text-center text-white w-25 h-100 p-4 ">
+    <ul>
+      <li class="btn btn-secondary nav-link border m-1 "><a class="text-white" href="/show_events">Events</a></li>
+      <li class="btn btn-secondary nav-link border m-1 rounded"><a class="text-white" href="/show_users">Users</a></li>
+    </ul>
+  </div>
+  <div class="text-center h-100 w-100 d-flex flex-column align-items-center">
+    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
+    
+    <% if @events.first %>
+      
+      <% @events.each do |event| %>
+        <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
+          <h3> <%= event.title %> </h3>
+          <p> <%= event.description %> </p>
+          <h5> <%= event.date_event %> </h5>
+          <p>
+            <%= link_to "Show this event", event %>
+          </p>
+        </div>
+      <% end %>
+    <% else %>
+      <h6>
+      There are no events yet, add one!
+      <h6>
+      <%= link_to "New event", new_event_path %>
+    <% end %>
+  </div>
+</section>
