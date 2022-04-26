@@ -6,5 +6,7 @@ class Event < ApplicationRecord
   validates :place, presence: true
   validates :min_age, presence: true
 
+
   has_many :users, through: :inscriptions
+
 end
