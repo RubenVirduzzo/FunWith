@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admin do 
     resources :tags
   end
   resources :events
   resource :users
 
-  devise_for :users
   root to: "home#index"
 
   resource :users
