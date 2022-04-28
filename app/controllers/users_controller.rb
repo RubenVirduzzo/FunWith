@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
   end
 
   def ban
     @user = User.find(params[:id])
-    if current_user.role == "admin"
+    if current_user.admin?
       @user.banned!
     end
     respond_to do |format|
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 
   def unban
     @user = User.find(params[:id])
-    if current_user.role == "admin"
+    if current_user.admin?
       @user.member!
     end
     respond_to do |format|
