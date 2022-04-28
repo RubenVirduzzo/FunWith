@@ -1,8 +1,7 @@
-<p style="color: green"><%= notice %></p>
-<div class="containar-fluid text-center d-flex flex-column justify-content-center align-items-center">
-    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
-  <% if @events.first %>
+<div class="text-center d-flex flex-column justify-content-center align-items-center" style="margin-top:;">
     
+  <% if @events %>
+    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
     <% @events.each do |event| %>
       <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
           <h3> <%= event.title %> </h3>
@@ -14,9 +13,9 @@
       </div>
     <% end %>
   <% else %>
-    <h6>
+    <h5 class="m-2">
     There are no events yet, add one!
-    <h6>
-    <%= link_to "New event", new_event_path %>
+    </h5>
+    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
   <% end %>
 </div>

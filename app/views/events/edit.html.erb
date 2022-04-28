@@ -1,6 +1,8 @@
-<%= render "form", event: @event %>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <%= render "form", event: @event %>
 
-<div class="text-center">
-  <%= link_to "Show this event", @event %> |
-  <%= link_to "Back to events", events_path %>
+  <div class="d-flex ml-5 pl-3 align-items-center">
+    <%= link_to "Show this event", @event, class: "txt m-2" %> |
+    <%= link_to "Back to events", events_path, class: "txt m-2" %>
+  </div>
 </div>
