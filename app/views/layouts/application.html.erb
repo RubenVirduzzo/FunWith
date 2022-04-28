@@ -21,6 +21,9 @@
           <li class="nav-link"><a class="text-white nav-link" href="/events">Your events</a></li>
           <li class="nav-link"><a class="text-white nav-link" href="/users/<%= current_user.id %>">Profile</a></li>
         <% end %>
+        <% if current_user && current_user.admin? %>
+          <li class="nav-link"><a class="text-white nav-link" href="/admin/tags">Tags</a></li>
+        <% end %>
         <% if !current_user %>   
         <li class="nav-link"><a class="btn bg-logo text-white" href="/users/sign_in">Sign in</a></li>
         <% end %>
