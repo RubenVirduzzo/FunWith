@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
   validates :label, presence: true, uniqueness: true
-  has_one :event
+  has_and_belongs_to_many :event
 end
