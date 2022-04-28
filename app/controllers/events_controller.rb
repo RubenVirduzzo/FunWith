@@ -3,11 +3,14 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   # GET /events or /events.json
   def index
-    @events = Event.all
+    
+    @events = Event.where(organizer_id: current_user.id)
+
   end
 
   # GET /events/1 or /events/1.json
   def show
+    
   end
 
   # GET /events/new
@@ -22,6 +25,7 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
+    @event.organizer_id = current_user.id
 
     respond_to do |format|
       if @event.save
