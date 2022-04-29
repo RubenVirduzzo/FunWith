@@ -1,14 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<div class="d-flex flex-column align-items-center text-center">
+  <h1>Tags</h1>
 
-<h1>Tags</h1>
-
-<div id="tags">
-  <% @tags.each do |tag| %>
-    <%= render tag %>
-    <p>
-      <%= link_to "Show this tag", admin_tag_path(tag) %>
-    </p>
-  <% end %>
+  <%= link_to "New tag", new_admin_tag_path %>
+  <div id="tags">
+    <ul class="p-0 d-flex">
+      <% @tags.each do |tag| %>
+        <li class="nav-link m-5 bg-success rounded"><a class="text-white" href="<%= admin_tag_path(tag) %>"><%= tag.label %></a></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
-<%= link_to "New tag", new_admin_tag_path %>

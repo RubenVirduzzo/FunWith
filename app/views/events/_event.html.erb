@@ -1,50 +1,62 @@
 <section class="container d-flex flex-column justify-content-around align-items-center p-2">
 
-  <div id="<%= dom_id event %>" class="form-div p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
+  <div id="<%= dom_id event %>" class="bg-warning p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
     <p>
-      <strong>Title:</strong>
+      <strong class="txt">Title:</strong>
+      <br>
       <%= event.title %>
     </p>
 
     <p>
-      <strong>Description:</strong>
+      <strong class="txt">Description:</strong>
+      <br>
       <%= event.description %>
     </p>
 
     <p>
-      <strong>Date event:</strong>
+      <strong class="txt">Date event:</strong>
+      <br>
       <%= event.date_event %>
     </p>
 
     <p>
-      <strong>Duration time:</strong>
+      <strong class="txt">Duration time:</strong>
+      <br>
       <%= event.duration_time %>
     </p>
 
     <p>
-      <strong>Place:</strong>
+      <strong class="txt">Place:</strong>
+      <br>
       <%= event.place %>
     </p>
 
     <p>
-      <strong>Min number of joiners:</strong>
+      <strong class="txt">Min number of joiners:</strong>
+      <br>
       <%= event.min_number_of_joiners %>
     </p>
 
     <p>
-      <strong>Max number of joiners:</strong>
+      <strong class="txt">Max number of joiners:</strong>
+      <br>
       <%= event.max_number_of_joiners %>
     </p>
 
     <p>
-      <strong>Price:</strong>
-      <%= event.price %>
+      <strong class="txt">Price:</strong>
+      <br>
+      <%= event.price %>€
     </p>
 
     <p>
-      <strong>Min age:</strong>
+      <strong class="txt">Min age:</strong>
+      <br>
       <%= event.min_age %>
     </p>
+
+    <button><a link_to events/:id/subcribe> subscribe</a>
+    </button>
 
   </div>
 </section>

@@ -1,17 +1,17 @@
-<%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div style="color: red" class="container d-flex flex-column justify-content-around align-items-center p-2">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-        <ul>
-          <% event.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<section class="d-flex flex-column align-items-center">
+  <%= form_with(model: event) do |form| %>
+      <% if event.errors.any? %>
+        <div style="color: red" class="text-center mt-5">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+            <ul>
+              <% event.errors.each do |error| %>
+                <li class="nav-link"><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+    <div class="form-div m-5 p-5 d-flex flex-column  align-items-center w-100 text-center rounded">
 
-<section class="container d-flex flex-column justify-content-around align-items-center p-2">
-<div class="form-div p-5 d-flex flex-column justify-content-around align-items-center w-50 text-center rounded">
       <h1>Event</h1>
       
       <div>
@@ -52,9 +52,10 @@
         <%= form.number_field :min_age, placeholder: "Min age", class: "text-center m-3" %>
       </div>
 
-      <div class="m-3">
+      <section class="m-3">
         <%= form.submit class: "btn bg-logo text-white" %>
       </div>
     </div>
-  </section>
-<% end %>
+    
+  <% end %>
+</section>

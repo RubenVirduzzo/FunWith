@@ -1,18 +1,18 @@
 <section class="container d-flex flex-column justify-content-around align-items-center p-2">
-<div class="form-div p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
-
-<%= form_with(model: tag) do |form| %>
-  <% if tag.errors.any? %>
+<%= form_with(model: [:admin, @tag]) do |form| %>
+  <% if @tag.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
 
       <ul>
-        <% tag.errors.each do |error| %>
+        <% @tag.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+<div class="form-div p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
+
   <h1>New tag</h1>
   <div>
     <%= form.text_field :label, placeholder: "Label", class: "text-center m-3" %>
