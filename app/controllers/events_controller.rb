@@ -3,9 +3,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   # GET /events or /events.json
   def index
-    
-    @events = Event.where(organizer_id: current_user.id)
 
+    @events = Event.where(organizer_id: current_user.id)
   end
 
   # GET /events/1 or /events/1.json
@@ -16,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    
   end
 
   # GET /events/1/edit
