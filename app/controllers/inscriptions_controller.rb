@@ -22,9 +22,9 @@ class InscriptionsController < ApplicationController
 
   # POST /inscriptions or /inscriptions.json
   def create
+
     @inscription = Inscription.new(inscription_params)
     @inscription.user_id = current_user.id
-
     respond_to do |format|
       if @inscription.save
         Rails.logger.debug("Sto entrando!!")
@@ -59,14 +59,10 @@ class InscriptionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_inscription
-      @inscription = Inscription.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def inscription_params
-      params.require(:inscription).permit(:event_id)
+      params.permit(:event_id)
     end
 
     def set_event

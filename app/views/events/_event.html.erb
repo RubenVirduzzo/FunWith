@@ -46,8 +46,11 @@
       <br>
       <%= event.min_age %>
     </p>
-    <% if current_user.id != event.organizer_id%>
-      <%= button_to "Subscribe", event_inscriptions_path(event), class: "btn bg-logo text-white" %>
+    <% if current_user.id != event.organizer_id  %>
+      <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
     <% end %>
   </div>
+  <%= @event.title %><br>
+  <%= @inscription.inspect %>
+  
 </section>

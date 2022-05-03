@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resource :users
 
   root to: "home#index"
-
   get "/users/:id", to: "users#show"
   get "/users/ban/:id", to: "users#ban"
   get "/users/unban/:id", to: "users#unban"
