@@ -1,24 +1,26 @@
 <section class="body d-flex w-100">
     <%= render "sidebar" %>
-    <div class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:25%;">
+    <div class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:24%;">
       <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
       
       <% if @events.first %>
-        <ul>
-          <li>All events</li>
-          <li>Subcription</li>
-          <li>No subcription</li>
+        <ul class="d-flex nav m-5">
+          <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="/show_events"> All events</a></li>
+          <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="">Subcription</a></li>
+          <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="">No subcription</a></li>
         </ul>
-        <% @events.each do |event| %>
-          <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
-            <h3> <%= event.title %> </h3>
-            <p> <%= event.description %> </p>
-            <h5> <%= event.date_event %> </h5>
-            <p>
-              <%= link_to "Show this event", event %>
-            </p>
-          </div>
-        <% end %>
+        <div class="container d-flex flex-column align-items-center border rounded p-5">
+          <% @events.each do |event| %>
+            <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
+              <h3> <%= event.title %> </h3>
+              <p> <%= event.description %> </p>
+              <h5> <%= event.date_event %> </h5>
+              <p>
+                <%= link_to "Show this event", event %>
+              </p>
+            </div>
+          <% end %>
+        </div>
       <% else %>
         <h6>
         There are no events yet, add one!

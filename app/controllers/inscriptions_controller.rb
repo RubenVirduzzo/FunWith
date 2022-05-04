@@ -1,12 +1,10 @@
 class InscriptionsController < ApplicationController
-
   before_action :set_event, only: :create 
 
   def index
     @inscriptions = Inscription.where(user_id: current_user.id)
   end
 
-  # GET /inscriptions/1 or /inscriptions/1.json
   def show
     
   end
@@ -27,7 +25,6 @@ class InscriptionsController < ApplicationController
     @inscription.user_id = current_user.id
     respond_to do |format|
       if @inscription.save
-        Rails.logger.debug("Sto entrando!!")
         format.html { redirect_to event_url(@event), notice: "inscription was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,13 +45,14 @@ class InscriptionsController < ApplicationController
     end
   end
 
-  # DELETE /inscriptions/1 or /inscriptions/1.json
+  
   def destroy
-    @inscription.destroy
+    @event = Event.find(params[:event_id])
+    @inscription = current_user.events.find_by(id: @event.id)
+    current_user.events.destroy(@inscription)
 
     respond_to do |format|
-      format.html { redirect_to inscriptions_url, notice: "inscription was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to event_url(@event), notice: "inscription was successfully deleted." }
     end
   end
 

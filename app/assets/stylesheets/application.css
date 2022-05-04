@@ -35,3 +35,11 @@ input {
   font-size: 30px;
   font-weight: 600;
 }
+
+.filters {
+  width: 20vw;
+}
+
+.elements {
+  margin-left: 7.3%;
+}
