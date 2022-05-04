@@ -46,11 +46,14 @@
       <br>
       <%= event.min_age %>
     </p>
-    <% if current_user.id != event.organizer_id  %>
-      <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
+    <% if current_user.id != event.organizer_id %>
+      <% if current_user.events.find_by(id: event.id).nil? %>
+        <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
+      <% else %>
+        <%= button_to "Unsubscribe", event_inscriptions_path(event, event.inscriptions.by_user), method: :delete, class: "btn bg-logo text-white" %>
+      <% end %>
     <% end %>
   </div>
-  <%= @event.title %><br>
-  <%= @inscription.inspect %>
+  <%= current_user.events %>
   
 </section>

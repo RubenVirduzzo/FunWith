@@ -10,6 +10,7 @@
           <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="">No subcription</a></li>
         </ul>
         <div class="container d-flex flex-column align-items-center border rounded p-5">
+          <h1>Events: <%= @events.count %></h1>
           <% @events.each do |event| %>
             <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
               <h3> <%= event.title %> </h3>

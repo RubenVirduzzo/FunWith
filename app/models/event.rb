@@ -10,7 +10,7 @@ class Event < ApplicationRecord
                       foreign_key: "organizer_id"
 
 
-  
+  has_many :inscriptions
   has_many :users, through: :inscriptions
   has_and_belongs_to_many :tag
 end

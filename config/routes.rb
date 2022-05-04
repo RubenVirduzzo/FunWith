@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  resource :users
   namespace :admin do 
     resources :tags
   end
-
+  
   resources :events do
     resources :inscriptions
   end
-  resource :users
 
   root to: "home#index"
   get "/users/:id", to: "users#show"
