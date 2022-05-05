@@ -4,10 +4,18 @@ class HomeController < ApplicationController
   end
 
   def show_events
-    @events = Event.all
+    if user_session
+      @events = Event.all
+    else
+      redirect_to "/"
+    end
   end
 
   def show_users
-    @users = User.all
+    if user_session
+      @users = User.all    
+    else
+      redirect_to "/"
+    end
   end
 end

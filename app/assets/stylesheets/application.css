@@ -14,6 +14,7 @@ input {
 
 .txt {
   color: #00adb5;
+  text-shadow: .2px .2px 1px #cacaca;
 }
 
 .body {
@@ -33,4 +34,12 @@ input {
 .nav-home ul li a {
   font-size: 30px;
   font-weight: 600;
+}
+
+.filters {
+  width: 20vw;
+}
+
+.elements {
+  margin-left: 7.3%;
 }

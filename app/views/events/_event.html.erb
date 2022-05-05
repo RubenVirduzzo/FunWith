@@ -6,57 +6,54 @@
       <br>
       <%= event.title %>
     </p>
-
     <p>
       <strong class="txt">Description:</strong>
       <br>
       <%= event.description %>
     </p>
-
     <p>
       <strong class="txt">Date event:</strong>
       <br>
       <%= event.date_event %>
     </p>
-
     <p>
       <strong class="txt">Duration time:</strong>
       <br>
       <%= event.duration_time %>
     </p>
-
     <p>
       <strong class="txt">Place:</strong>
       <br>
       <%= event.place %>
     </p>
-
     <p>
       <strong class="txt">Min number of joiners:</strong>
       <br>
       <%= event.min_number_of_joiners %>
     </p>
-
     <p>
       <strong class="txt">Max number of joiners:</strong>
       <br>
       <%= event.max_number_of_joiners %>
     </p>
-
     <p>
       <strong class="txt">Price:</strong>
       <br>
       <%= event.price %>€
     </p>
-
     <p>
       <strong class="txt">Min age:</strong>
       <br>
       <%= event.min_age %>
     </p>
-
-    <button><a link_to events/:id/subcribe> subscribe</a>
-    </button>
-
+    <% if current_user.id != event.organizer_id %>
+      <% if current_user.events.find_by(id: event.id).nil? %>
+        <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
+      <% else %>
+        <%= button_to "Unsubscribe", event_inscriptions_path(event, event.inscriptions.by_user), method: :delete, class: "btn bg-logo text-white" %>
+      <% end %>
+    <% end %>
   </div>
+  <%= current_user.events %>
+  
 </section>

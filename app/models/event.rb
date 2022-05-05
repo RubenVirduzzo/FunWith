@@ -6,7 +6,11 @@ class Event < ApplicationRecord
   validates :place, presence: true
   validates :min_age, presence: true
 
+  belongs_to :organizer, class_name: "User",
+                      foreign_key: "organizer_id"
 
+
+  has_many :inscriptions
   has_many :users, through: :inscriptions
-
+  has_and_belongs_to_many :tag
 end

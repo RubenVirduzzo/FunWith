@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :events, through: :inscriptions
 
   def age
-    ((Time.zone.now - self.date_of_birth.to_time) /  1.year.seconds).floor
+    ((Time.zone.now - self.date_of_birth) /  1.year.seconds).floor
   end
 
   def underage?
