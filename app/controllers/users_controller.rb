@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to "/users/#{@user.id}", notice: "#{@user.username} was successfully banned." }
-      format.json { head :no_content }
     end
   end
 
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to "/users/#{@user.id}", notice: "#{@user.username} was successfully unbanned." }
-      format.json { head :no_content }
     end
   end
 end
