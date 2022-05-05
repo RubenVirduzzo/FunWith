@@ -43,6 +43,7 @@ RSpec.describe "/events", type: :request do
 
   describe "GET /new" do
     it "renders a successful response" do
+      event = Event.create! valid_attributes
       get new_event_url
       expect(response).to be_successful
     end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resource :users
+  
   namespace :admin do 
     resources :tags
   end
