@@ -29,15 +29,12 @@ class InscriptionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /inscriptions/1 or /inscriptions/1.json
   def update
     respond_to do |format|
       if @inscription.update(inscription_params)
-        format.html { redirect_to inscription_url(@inscription), notice: "inscription was successfully updated." }
-        format.json { render :show, status: :ok, location: @inscription }
+        format.html { redirect_to event_url(@event), notice: "inscription was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @inscription.errors, status: :unprocessable_entity }
       end
     end
   end
