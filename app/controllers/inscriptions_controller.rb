@@ -9,16 +9,13 @@ class InscriptionsController < ApplicationController
     
   end
 
-  # GET /inscriptions/new
   def new
     @inscription = Inscription.new
   end
 
-  # GET /inscriptions/1/edit
   def edit
   end
 
-  # POST /inscriptions or /inscriptions.json
   def create
 
     @inscription = Inscription.new(inscription_params)
