@@ -1,5 +1,6 @@
 class InscriptionsController < ApplicationController
-  before_action :set_event, only: :create 
+  before_action :set_event, only: [:create, :destroy]
+  before_action :set_inscription , only: :destroy
 
   def index
     @inscriptions = Inscription.where(user_id: current_user.id)
@@ -17,7 +18,6 @@ class InscriptionsController < ApplicationController
   end
 
   def create
-
     @inscription = Inscription.new(inscription_params)
     @inscription.user_id = current_user.id
     respond_to do |format|
@@ -41,12 +41,14 @@ class InscriptionsController < ApplicationController
 
   
   def destroy
-    @event = Event.find(params[:event_id])
-    @inscription = current_user.events.find_by(id: @event.id)
-    current_user.events.destroy(@inscription)
-
-    respond_to do |format|
-      format.html { redirect_to event_url(@event), notice: "inscription was successfully deleted." }
+    if @inscription.destroy 
+      respond_to do |format|
+        format.html { redirect_to event_url(@event), notice: "inscription was successfully deleted." }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to event_url(@event), notice: "Can't delete inscription." }
+      end
     end
   end
 
@@ -54,10 +56,14 @@ class InscriptionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inscription_params
-      params.permit(:event_id)
+      params.permit(:event_id, :id)
     end
 
     def set_event
       @event = Event.find(params[:event_id])
+    end
+
+    def set_inscription
+      @inscription = Inscription.find(params[:id])
     end
 end
