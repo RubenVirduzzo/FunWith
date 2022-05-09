@@ -1,14 +1,9 @@
 <section class="body d-flex w-100">
     <%= render "sidebar" %>
     <div class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:24%;">
-      <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
-      
+      <%= render "nav_events" %>
       <% if @events.first %>
-        <ul class="d-flex nav m-5">
-          <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="/show_events"> All events</a></li>
-          <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="">Subcription</a></li>
-          <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="">No subcription</a></li>
-        </ul>
+        
         <div class="container d-flex flex-column align-items-center border rounded p-5">
           <h1>Events: <%= @events.count %></h1>
           <% @events.each do |event| %>
