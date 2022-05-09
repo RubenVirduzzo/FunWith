@@ -13,7 +13,17 @@ RSpec.describe Event, type: :model do
         max_number_of_joiners: 10,
         price: 10.00,
         min_age: 18,
-        organizer_id: 1
+        organizer_id: user.id
+      }
+    end
+    
+    let(:valid_user_params) do
+      {
+        fullname: "testino",
+        username: "test",
+        date_of_birth: Date.new(1991, 11, 26),
+        email: "ciao@ciao.com",
+        password: "123456"
       }
     end
 
@@ -89,11 +99,31 @@ RSpec.describe Event, type: :model do
 
     context "when min_age field is a string" do
 
-      let(:invalid_event_params) { valid_event_params.merge(min_age: "string") }
+      let(:invalid_event_params) { valid_event_params.merge(min_age: "Poldo") }
           
       it 'data invalid' do
-        event = Event.new(invalid_event_params)
+        event = Event.create(invalid_event_params)
         expect(event.valid?).to be false
+      end
+    end
+
+    let(:user) { User.create(valid_user_params) }
+
+    let!(:event) { Event.create(valid_event_params) }
+    
+    context 'when the event is not available to the user' do
+  
+      before { Inscription.create(event_id: event.id, user_id: user.id) }      
+
+      it { expect(Event.available_for(user)).to eq([]) }
+    end
+
+    context 'when the event is available to de user' do
+      
+      subject { Event.available_for(user) }
+  
+      it do
+        is_expected.to_not eq([]) 
       end
     end
   end

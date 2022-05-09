@@ -21,38 +21,34 @@ RSpec.describe Inscription, type: :model do
       max_number_of_joiners: 10,
       price: 10.00,
       min_age: 18,
-      organizer_id: 1
+      organizer_id: user.id
     }
   end
 
   let(:user) { User.create(user_params) }
 
-  let(:second_user) { User.create(user_params) }
+  let(:second_user) { User.create(user_params.merge(email: "ciao2@ciao.com"))} 
 
-  let(:event) { Event.create(event_params) }
+  let!(:event) { Event.create(event_params) }
 
-  let(:second_event) { Event.create(event_params) }
+  let!(:second_event) { Event.create(event_params) }
 
-  let(:inscription) { Inscription.create(event_id: event.id, user_id: user.id) }
+  let!(:inscription) { Inscription.create(event_id: event.id, user_id: user.id) }
 
   context 'when the user is not inscribed in the event yet' do
-    subject { inscription.inscripted?(second_user, event) }
+    subject { second_user.inscripted?(event) }
 
     it { is_expected.to be false }
   end
 
   context 'when the user is inscribed in the event' do
-    subject { inscription.inscripted?(user, event) }
+    subject { user.inscripted?(event) }
 
-    #it { is_expected.to be true }
-    it do
-      user.inspect
-      is_expected.to be true 
-    end
+    it { is_expected.to be true }
   end
 
   context 'when the user is not inscribed in that event' do
-    subject { inscription.inscripted?(user, second_event) }
+    subject { user.inscripted?(second_event) }
 
     it { is_expected.to be false }
   end
