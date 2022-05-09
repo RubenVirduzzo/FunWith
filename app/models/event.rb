@@ -13,4 +13,9 @@ class Event < ApplicationRecord
   has_many :inscriptions
   has_many :users, through: :inscriptions
   has_and_belongs_to_many :tag
+
+  def self.available_for(user)
+    events = Event.where(organizer_id: user.id)
+    Event.all - user.inscriptions.map(&:event) - events
+  end
 end
