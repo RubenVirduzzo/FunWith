@@ -36,10 +36,19 @@
       <br>
       <%= event.min_age %>
     </p>
+
+      <p>
+        <% if !event.completed? %>
+          <br>
+          <strong class="txt"><%= event.places_left %> Places left</strong>
+        <% else %>
+          <strong class="txt">Subscriptions out!</strong>
+        <% end %>
+      </p>
+
     <% if current_user.id != event.organizer_id %>
 
-      <% if !current_user.inscripted?(event)%>
-        
+      <% if !current_user.inscripted?(event) && !event.completed? %>
         <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
       <% else %>
         <%= button_to "Unsubscribe", event_inscription_path(event, current_user.inscription_by_event(event)), method: :delete, class: "btn bg-logo text-white" %>

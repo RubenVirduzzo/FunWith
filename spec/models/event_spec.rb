@@ -118,12 +118,58 @@ RSpec.describe Event, type: :model do
       it { expect(Event.available_for(user)).to eq([]) }
     end
 
-    context 'when the event is available to de user' do
+    context 'when the event is available to the user' do
       
       subject { Event.available_for(user) }
   
       it do
-        is_expected.to_not eq([]) 
+        is_expected.to_not be eq([]) 
+      end
+    end
+
+    context 'when the event has place left' do
+      
+      subject { event.places_left }
+  
+      it do
+        is_expected.to eq 10 
+      end
+    end
+
+    context 'when the event has not place left' do
+      
+      let( :invalid_event_params ) { valid_event_params.merge( max_number_of_joiners: 0 ) }
+       
+      subject do
+        event = Event.create(invalid_event_params)
+        event.places_left
+      end
+  
+      it do
+        is_expected.to eq 0
+      end
+    end
+
+    context 'when the event is has not finisced the subscriptions' do
+      
+      subject { event.completed? }
+  
+      it do
+        is_expected.to be false 
+      end
+    end
+
+    context 'when the event has not place left' do
+      
+      let( :invalid_event_params ) { valid_event_params.merge( max_number_of_joiners: 0 ) }
+       
+      subject do
+        event = Event.create(invalid_event_params)
+        event.completed?
+      end
+  
+      it do
+        is_expected.to be true
       end
     end
   end

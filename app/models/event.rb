@@ -18,4 +18,12 @@ class Event < ApplicationRecord
     events = Event.where(organizer_id: user.id)
     Event.all - user.inscriptions.map(&:event) - events
   end
+
+  def places_left
+    max_number_of_joiners.to_i - inscriptions.count
+  end
+
+  def completed?
+    places_left == 0
+  end
 end
