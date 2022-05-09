@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  
   def index
   end
 
@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     if user_session
       @events = Event.all
     else
-      redirect_to "/"
+     redirect_to "/"
     end
   end
 
@@ -34,4 +34,5 @@ class HomeController < ApplicationController
       redirect_to "/"
     end
   end
+
 end
