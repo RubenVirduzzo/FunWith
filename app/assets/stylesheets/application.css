@@ -39,3 +39,28 @@ input {
 .elements {
   margin-left: 7.3%;
 }
+
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.label {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label::-webkit-scrollbar {
+  width: 10px;    
+  border: solid;  
+  border-color: #cacaca;
+  border-radius: 10px;  
+  border-width: 2px;  
+}
+
+.label::-webkit-scrollbar-thumb {
+  background-color: #00acb5a0;
+  border-radius: 15px
+}
