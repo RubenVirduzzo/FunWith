@@ -45,7 +45,11 @@
       </div>
 
       <div>
-        <%= form.text_field :price, placeholder: "Price", class: "text-center m-3" %>
+        <%= form.select :tags, placeholder: "tags", class: "text-center m-3" %>
+      </div>
+
+      <div>
+        <%= form.text_field :price, event.tag %>
       </div>
 
       <div>

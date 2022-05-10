@@ -7,7 +7,6 @@ class InscriptionsController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -18,6 +17,7 @@ class InscriptionsController < ApplicationController
   end
 
   def create
+    return format.html { redirect_to event_url(@event), notice: "inscription was successfully created." } if current_user.banned?
     @inscription = Inscription.new(inscription_params)
     @inscription.user_id = current_user.id
     respond_to do |format|
