@@ -15,8 +15,7 @@ class Event < ApplicationRecord
   has_and_belongs_to_many :tag
 
   def self.available_for(user)
-    events = Event.where(organizer_id: user.id)
-    Event.all - user.inscriptions.map(&:event) - events - Event.all.select{|event| event.completed?}
+    Event.where.not(organizer_id: user.id) - user.inscriptions.map(&:event) - Event.all.select{|event| event.completed?}
   end
 
   def places_left
