@@ -3,12 +3,10 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     @events = Event.where(organizer_id: current_user.id)
   end
 
   def show
-    
   end
 
   def new

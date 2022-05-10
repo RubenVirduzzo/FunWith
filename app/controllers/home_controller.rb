@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  
   def index
   end
 
@@ -7,15 +7,32 @@ class HomeController < ApplicationController
     if user_session
       @events = Event.all
     else
-      redirect_to "/"
+     redirect_to :root
     end
   end
 
   def show_users
     if user_session
-      @users = User.all    
+      @users = User.all  
+      else
+       redirect_to :root
+      end  
+  end
+
+  def show_subscriptions
+    if user_session
+      @events = current_user.events.all
     else
-      redirect_to "/"
+     redirect_to :root
     end
   end
+
+  def show_availables
+    if user_session
+      @events = Event.available_for(current_user)
+    else
+      redirect_to :root
+    end
+  end
+
 end

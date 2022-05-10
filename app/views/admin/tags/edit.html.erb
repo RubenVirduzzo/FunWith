@@ -1,10 +1,12 @@
-<h1>Editing tag</h1>
+<div class="text-center">
 
-<%= render "form", tag: admin_tags_path(@tag) %>
+  <h1>Edit tag</h1>
+  <%= render "form", tag: admin_tags_path(@tag) %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this tag", admin_tags_path(@tag) %> |
-  <%= link_to "Back to tags", admin_tags_path %>
-</div>
+  <div>
+    <%= link_to "Show this tag", admin_tags_path(@tag) %> |
+    <%= link_to "Back to tags", admin_tags_path %>
+  </div>
+</div> 

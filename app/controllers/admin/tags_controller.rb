@@ -40,10 +40,8 @@ class Admin::TagsController < ApplicationController
     respond_to do |format|
       if @tag.update(tag_params)
         format.html { redirect_to admin_tag_url(@tag), notice: "Tag was successfully updated." }
-        format.json { render :show, status: :ok, location: @tag }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +52,6 @@ class Admin::TagsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to tags_url, notice: "Tag was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

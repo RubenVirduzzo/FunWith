@@ -13,11 +13,19 @@ class User < ApplicationRecord
   has_many :events, through: :inscriptions
 
   def age
-    ((Time.zone.now - self.date_of_birth) /  1.year.seconds).floor
+    (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor
   end
 
   def underage?
     age < 18
   end
-end
 
+  def inscripted?(event)
+    inscription_by_event(event).present?
+  end
+
+  def inscription_by_event(event)
+    inscriptions.by_event(event)&.first
+  end
+
+end
