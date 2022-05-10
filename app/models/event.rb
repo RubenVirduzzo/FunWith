@@ -16,7 +16,7 @@ class Event < ApplicationRecord
 
   def self.available_for(user)
     events = Event.where(organizer_id: user.id)
-    Event.all - user.inscriptions.map(&:event) - events
+    Event.all - user.inscriptions.map(&:event) - events - Event.all.select{|event| event.completed?}
   end
 
   def places_left
