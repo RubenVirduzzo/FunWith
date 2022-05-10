@@ -11,3 +11,7 @@
 # 10.times do |i|
 #   User.create! fullname: "userino#{i}",username: "user#{i}", email: "user#{i}@user.com", date_of_birth: "26-11-1991", password: "123456", password_confirmation: "123456"
 # end
+
+# 30.times do |i|
+#   Tag.create! label: "tag#{i}",description: "tag#{i}"
+# end

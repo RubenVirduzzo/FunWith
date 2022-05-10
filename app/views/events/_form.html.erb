@@ -14,28 +14,26 @@
 
       <h1>Event</h1>
       
-      <div>
+      <div class="d-flex">
         <%= form.text_field :title, placeholder: "Title", class: "text-center m-3" %>
       </div>
-
       <div>
         <%= form.text_area :description, placeholder: "Description", class: "text-center m-3" %>
       </div>
       
       <div>
-        <%= form.label :date_event, style: "display: block" %>
-        <%= form.date_field :date_event, class: "text-center m-1 mb-3" %>
+          <%= form.label :date_event, style: "display: block" %>
+          <%= form.date_field :date_event, class: "text-center m-1" %>
       </div>
-
       <div>
-        <%= form.label :duration_time, style: "display: block" %>
-        <%= form.time_field :duration_time, class: "m-1"  %>
+          <%= form.label :duration_time, style: "display: block" %>
+          <%= form.time_field :duration_time, class: "m-1"  %>
+        
       </div>
 
       <div>
         <%= form.text_field :place, placeholder: "Place", class: "text-center m-3" %>
       </div>
-
       <div>
         <%= form.text_field :min_number_of_joiners, placeholder: "Min number of joiners", class: "text-center m-3" %>
       </div>
@@ -44,12 +42,16 @@
         <%= form.text_field :max_number_of_joiners, placeholder: "Max number of joiners", class: "text-center m-3" %>
       </div>
 
-      <div>
-        <%= form.select :tags, placeholder: "tags", class: "text-center m-3" %>
+      <div style=" overflow:hidden;">
+        
+        <%= form.label :tags, style: "display: block" %>
+        <div class="m-3 p-1 bg-light rounded label" style="width:90px; height:50px; overflow-x: hidden; overflow-y: scroll;">
+          <%= form.collection_check_boxes :tag, Tag.order(:label), :id, :label %>
+        </div>
+        
       </div>
-
       <div>
-        <%= form.text_field :price, event.tag %>
+        <%= form.number_field :price, placeholder: "Price", class: "text-center", step:"any" %>
       </div>
 
       <div>
