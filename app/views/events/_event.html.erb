@@ -37,6 +37,12 @@
       <%= event.min_age %>
     </p>
 
+    <div class="mb-5" style="width:170px; display:flex; flex-wrap:wrap; ">
+      <% event.tags.each do |tag| %>
+        <div class="text-white p-2 m-1 bg-danger rounded"><%= tag.label %></div>
+      <% end %>
+    </div>
+
     <p>
       <% if !event.completed? %>
         <br>
@@ -52,9 +58,11 @@
         <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
       <% end %>
       <% if current_user.inscripted?(event) %>
-        <%= button_to "Unsubscribe", event_inscriptions_url(event, current_user.inscription_by_event(event.id)), method: :delete, class: "btn bg-logo text-white" %>
+        <%= button_to "Unsubscribe", event_inscription_url(event, current_user.inscription_by_event(event.id)), method: :delete, data: {turbo: false}, class: "btn bg-logo text-white" %>
       <% end %>
     <% end %>
+
+    <%= event.tag_ids %>
   </div>
   
 </section>

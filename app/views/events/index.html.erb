@@ -3,7 +3,7 @@
   <% if @events %>
     <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
     <% @events.each do |event| %>
-      <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
+      <div id="events" class="bg-warning mt-5 p-4 rounded">
           <h3> <%= event.title %> </h3>
           <p> <%= event.description %> </p>
           <h5> <%= event.date_event %> </h5>

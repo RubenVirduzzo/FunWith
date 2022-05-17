@@ -10,9 +10,11 @@ class Event < ApplicationRecord
                       foreign_key: "organizer_id"
 
 
-  has_many :inscriptions
+  has_many :inscriptions, dependent: :destroy
   has_many :users, through: :inscriptions
-  has_and_belongs_to_many :tag
+  has_and_belongs_to_many :tags
+
+  scope :by_tag, ->(tag) { where( tag_ids: tag.id ) }
 
   def self.available_for(user)
     Event.where.not(organizer_id: user.id) - user.inscriptions.map(&:event) - Event.all.select{|event| event.completed?}

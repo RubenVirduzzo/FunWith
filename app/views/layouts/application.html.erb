@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <%= stylesheet_link_tag "application.css", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
    
-    <nav class="container-fluid bg-dark bg-gradient" style="position:fixed; z-index:1; height: 75px;">
-      <ul class="d-flex flex-row justify-content-around p-2">
+    <nav class="container-fluid bg-dark bg-gradient" style="position:fixed; z-index:1; height: 60px;">
+      <ul class="d-flex flex-row justify-content-around">
         
-        <%= image_tag "FunWith.png", width: 60, height: 60 %>
+        <%= image_tag "FunWith.png", width: 50, height: 50, class: "m-1" %>
         <li class="nav-link"><a class="text-white nav-link" href="/">Home</a></li>
         <% if current_user %>
           <li class="nav-link"><a class="text-white nav-link" href="/events">Your events</a></li>
@@ -35,7 +39,7 @@
       </ul>
     </nav>
 
-    <div style="height:140px;"></div>
+    <div style="height:80px;"></div>
     <div class="d-flex justify-content-center text-center">
       <% if notice %>  
         <p class="notice bg-logo w-25 text-white"><%= notice %></p>

@@ -1,7 +1,15 @@
 <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
 
-<ul class="d-flex nav-home m-5">
-  <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="/show_events"> All events</a></li>
-  <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="/show_subscriptions">Subcriptions</a></li>
-  <li class="d-flex btn btn-secondary border border-secondary rounded  m-2 align-items-center"><a class="filters text-white" href="/show_availables">Events availables</a></li>
-</ul>
+<div class="dropdown m-3">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by
+  </button>
+  <div class="dropdown-menu" data-bs-toggle="dropdown" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item rounded-2" href="/show_events">All events</a>
+    <a class="dropdown-item rounded-2" href="/show_subscriptions">Subcriptions</a>
+    <a class="dropdown-item rounded-2" href="/show_availables">Events availables</a>
+    <a class="dropdown-item rounded-2" href="/show_tags">Tags</a>
+    <a class="dropdown-item rounded-2" href="/show_availables">Date</a>
+  </div>
+</div>
+

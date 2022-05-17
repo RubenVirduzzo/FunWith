@@ -23,12 +23,11 @@
       
       <div>
           <%= form.label :date_event, style: "display: block" %>
-          <%= form.date_field :date_event, class: "text-center m-1" %>
+          <%= form.datetime_field :date_event, class: "text-center m-1" %>
       </div>
       <div>
           <%= form.label :duration_time, style: "display: block" %>
           <%= form.time_field :duration_time, class: "m-1"  %>
-        
       </div>
 
       <div>
@@ -42,14 +41,12 @@
         <%= form.text_field :max_number_of_joiners, placeholder: "Max number of joiners", class: "text-center m-3" %>
       </div>
 
-      <div style=" overflow:hidden;">
-        
-        <%= form.label :tags, style: "display: block" %>
-        <div class="m-3 p-1 bg-light rounded label" style="width:90px; height:50px; overflow-x: hidden; overflow-y: scroll;">
-          <%= form.collection_check_boxes :tag, Tag.order(:label), :id, :label %>
-        </div>
-        
+      
+      <div class="label">
+        <%= form.collection_check_boxes :tag_ids, Tag.order(:label), :id, :label %> 
       </div>
+      
+
       <div>
         <%= form.number_field :price, placeholder: "Price", class: "text-center", step:"any" %>
       </div>
