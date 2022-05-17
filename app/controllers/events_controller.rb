@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   def index
-    @events = Event.where(organizer_id: current_user.id)
+    return @events = Event.all unless params[:search]
+    @events = Event.where(place: params[:search][:place]) 
   end
 
   def show
