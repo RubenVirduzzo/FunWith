@@ -48,5 +48,27 @@ RSpec.describe EventsController, type: :controller do
       end
     end
 
+    context 'when the user filters by user' do
+      before { get :index, params: { search: { organizer_id: user_second.id }}}
+
+      it "assigns @events" do
+        expect(assigns(:events).map(&:id)).to eq([ event_second.id, third_event.id ])
+      end
+    end
+
+    context 'when the user is logged in' do
+
+      before do 
+        sign_in user_second
+        Inscription.create(event_id: event_second.id, user_id: user_second.id)
+        Inscription.create(event_id: third_event.id, user_id: user_second.id)
+        get :index , params: { search: { available: true } }
+      end
+
+      it "assigns availables @events" do
+        expect(assigns(:events).map(&:id)).to eq([ event_first.id ])
+      end
+    end
+
   end
 end
