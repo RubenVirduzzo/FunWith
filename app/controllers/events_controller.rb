@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @events = @events.by_tag(params.dig( :search, :tag_ids ).to_i) if params.dig( :search, :tag_ids )
-    @events = @events.where(place: params.dig( :search, :place )) if params.dig( :search, :place)
+    @events = @events.by_place( params.dig( :search, :place )) if params.dig( :search, :place)
     @events
   end
 
