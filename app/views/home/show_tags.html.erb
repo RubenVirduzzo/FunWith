@@ -1,15 +1,15 @@
 <section class="d-flex w-100">
     <%= render "sidebar" %>
     <div class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:22.5%;">
-      <%= render "nav_events" %>
-      <% if @events.first %>
-        <div class="container d-flex flex-column align-items-center border rounded p-5">
-          <h1>You are subscribed at <%= @events.count %> events</h1>
-          <%= render "event" %>
-        </div>
+        <%= render "nav_events" %>
+      <div class="d-flex justify-content-between">
+      </div>
+      <% if @tags %>
+        <%= render "nav_tags" %>
+        <h1>Tags</h1>
       <% else %>
         <h6>
-        There are no subcriptions yet, make one!
+        There are no tags yet!
         <h6>
         <%= link_to "Back to all events", "/show_events", class: "txt" %>
       <% end %>

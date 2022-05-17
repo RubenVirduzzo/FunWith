@@ -3,21 +3,10 @@
     <div class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:22.5%;">
       <%= render "nav_events" %>
       <% if @events.first %>
-        
         <div class="container d-flex flex-column align-items-center border rounded p-5">
           <h1>Events: <%= @events.count %></h1>
-          <% @events.each do |event| %>
-            <div id="events" class="bg-warning w-25 mt-5 p-4 rounded">
-              <h3> <%= event.title %> </h3>
-              <p> <%= event.description %> </p>
-              <h5> <%= event.date_event %> </h5>
-              <p>
-                <%= link_to "Show this event", event %>
-              </p>
-            </div>
-          <% end %>
+          <%= render "event" %>
         </div>
-
       <% else %>
         <h6>
         There are no events yet, add one!

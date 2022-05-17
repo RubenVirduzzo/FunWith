@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   namespace :admin do 
     resources :tags
   end
-  
   resources :events do
     resources :inscriptions
   end
@@ -18,4 +17,6 @@ Rails.application.routes.draw do
   get "/show_users", to: "home#show_users"
   get "/show_subscriptions", to: "home#show_subscriptions"
   get "/show_availables", to: "home#show_availables"
+  get "/show_tags", to: "home#show_tags"
+  get "/show_one_tag/:id", to: "home#show_one_tag"
 end

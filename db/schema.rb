@@ -15,6 +15,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_091119) do
     t.integer "organizer_id"
   end
 
+  create_table "events_tags", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["event_id"], name: "index_events_tags_on_event_id"
+    t.index ["tag_id"], name: "index_events_tags_on_tag_id"
+  end
+
   create_table "inscriptions", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "user_id", null: false

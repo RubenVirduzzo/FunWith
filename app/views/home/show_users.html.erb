@@ -1,15 +1,18 @@
 <section class="d-flex w-100">
     <%= render "sidebar" %>
-    <div class="d-flex flex-column w-75 align-items-center" style="margin-left:22.5%;">
+    <div     class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:22.5%;"
+>
       <% if @users %>
-        <% @users.each do |user| %>
-          <div class="bg-logo text-center text-white w-25 mb-5 p-4 rounded">
-            <h3> <%= user.fullname %> </h3>
-            <p> <%= user.username %> </p>
-            <h5> <%= user.email %> </h5>
-            <a class="btn btn-secondary" href="/users/<%= user.id %>">View profile</a>
-          </div>
-        <% end %>
+        <div class="container d-flex flex-column align-items-center border rounded p-5 mb-5">
+          <% @users.each do |user| %>
+            <div  id="events" class="bg-logo text-center text-white mb-5 p-4 rounded">
+              <h3> <%= user.fullname %> </h3>
+              <p> <%= user.username %> </p>
+              <h5> <%= user.email %> </h5>
+              <a class="btn btn-secondary" href="/users/<%= user.id %>">View profile</a>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
 </section>

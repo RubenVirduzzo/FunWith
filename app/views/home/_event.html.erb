@@ -1,0 +1,10 @@
+<% @events.each do |event| %>
+  <div id="events" class="event bg-warning mt-5 p-4 rounded">
+    <h3> <%= event.title %> </h3>
+    <p> <%= event.description %> </p>
+    <h5> <%= event.date_event %> </h5>
+    <p>
+      <%= link_to "Show this event", event %>
+    </p>
+  </div>
+<% end %>
