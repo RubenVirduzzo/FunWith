@@ -7,6 +7,7 @@ class EventsController < ApplicationController
     @events = @events.by_tag(params.dig( :search, :tag_ids ).to_i) if params.dig( :search, :tag_ids )
     @events = @events.by_place( params.dig( :search, :place )) if params.dig( :search, :place)
     @events = @events.by_organizer( params.dig( :search, :organizer_id )) if params.dig( :search, :organizer_id)
+    @events = @events.by_date( params.dig( :search, :date )) if params.dig( :search, :date)
     @events
   end
 
