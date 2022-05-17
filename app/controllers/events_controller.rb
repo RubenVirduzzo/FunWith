@@ -3,8 +3,10 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    return @events = Event.all unless params[:search]
-    @events = Event.where(place: params[:search][:place]) 
+    @events = Event.all
+    @events = @events.by_tag(params.dig( :search, :tag_ids ).to_i) if params.dig( :search, :tag_ids )
+    @events = @events.where(place: params.dig( :search, :place )) if params.dig( :search, :place)
+    @events
   end
 
   def show

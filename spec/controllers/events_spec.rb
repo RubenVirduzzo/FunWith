@@ -8,6 +8,7 @@ RSpec.describe EventsController, type: :controller do
   let(:user_second) { User.create( fullname: "user_second", username: "second", date_of_birth: Date.new(2005, 11, 26), email: "user_second@usersecond.com", password: "123456" )}
   let!(:event_first) { Event.create( title: "event_first", description: "first", date_event: "2022-05-11T00:00:00", duration_time: "10:15:00.000", place: "Malvarosa", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: user_first.id, tag_ids: [tag_first.id] )}
   let!(:event_second) { Event.create( title: "event_second", description: "second", date_event: "2022-05-16T00:00:00", duration_time: "10:15:00.000", place: "Rio Turia", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: user_second.id, tag_ids: [tag_second.id] )}
+  let!(:third_event) { Event.create( title: "third_event", description: "third", date_event: "2022-05-16T00:00:00", duration_time: "10:15:00.000", place: "Rio Turia", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: user_second.id, tag_ids: [tag_first.id] )}
 
   describe "GET 'index'" do
     
@@ -15,19 +16,35 @@ RSpec.describe EventsController, type: :controller do
       before { get :index }
 
       it "assigns @events" do
-        expect(assigns(:events).count).to eq(2)
+        expect(assigns(:events).count).to eq(3)
       end
 
       it "assigns all @events" do
-        expect(assigns(:events).map(&:id)).to eq([ event_first.id, event_second.id])
+        expect(assigns(:events).map(&:id)).to eq([ event_first.id, event_second.id, third_event.id ])
       end
     end
 
     context 'when the user filters by location' do
-      before { get :index, params: { search: { place: "Rio Turia" } }}
+      before { get :index, params: { search: { place: "Rio Turia" }}}
 
       it "assigns @events" do
-        expect(assigns(:events).map(&:id)).to eq([ event_second.id ])
+        expect(assigns(:events).map(&:id)).to eq([ event_second.id, third_event.id ])
+      end
+    end
+
+    context 'when the user filters by tag' do
+      before { get :index, params: { search: { tag_ids: tag_first.id }}}
+
+      it "assigns @events" do
+        expect(assigns(:events).map(&:id)).to eq([ event_first.id, third_event.id ])
+      end
+    end
+
+    context 'when the user filters by tag and location' do
+      before { get :index, params: { search: { tag_ids: tag_first.id, place: "Rio Turia" }}}
+
+      it "assigns @events" do
+        expect(assigns(:events).map(&:id)).to eq([ third_event.id ])
       end
     end
 

@@ -14,7 +14,7 @@ class Event < ApplicationRecord
   has_many :users, through: :inscriptions
   has_and_belongs_to_many :tags
 
-  scope :by_tag, ->(tag) { where( tag_ids: tag.id ) }
+  scope :by_tag, ->(tag_id) { joins(:tags).where("tags.id"=> tag_id) }
 
   def self.available_for(user)
     Event.where.not(organizer_id: user.id) - user.inscriptions.map(&:event) - Event.all.select{|event| event.completed?}
