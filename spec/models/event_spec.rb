@@ -217,5 +217,16 @@ RSpec.describe Event, type: :model do
         is_expected.to eq([ third_event ])
       end
     end
+    
+    context 'when the user filters by user' do
+    
+      subject do
+        events = Event.by_organizer( user_second.id )
+      end
+        
+      it "assigns @events" do
+        is_expected.to eq([ event_second, third_event ])
+      end
+    end
   end
 end
