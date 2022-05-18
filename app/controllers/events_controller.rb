@@ -1,12 +1,18 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   def index
-    @events = Event.where(organizer_id: current_user.id)
+    @events = available_for_current_user? ? Event.available_for(current_user) : Event.all
+    @events = @events.by_tag(params.dig( :search, :tag_ids ).to_i) if params.dig( :search, :tag_ids )
+    @events = @events.by_place( params.dig( :search, :place )) if params.dig( :search, :place)
+    @events = @events.by_organizer( params.dig( :search, :organizer_id )) if params.dig( :search, :organizer_id)
+    @events = @events.by_date( params.dig( :search, :date )) if params.dig( :search, :date)
+    @events
   end
 
   def show
+    @event
   end
 
   def new
@@ -55,5 +61,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :date_event, :duration_time, :place, :min_number_of_joiners, :max_number_of_joiners, :price, :min_age,  tag_ids: [] )
+  end
+
+  def available_for_current_user?
+    current_user.present? && params.dig( :search, :available ) == "true"
   end
 end

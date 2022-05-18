@@ -28,6 +28,7 @@ gem 'devise'
 gem 'sass-rails'
 
 group :development, :test do
+  gem 'rails-controller-testing'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
   gem 'pry-byebug'
