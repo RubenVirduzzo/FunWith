@@ -205,5 +205,17 @@ RSpec.describe Event, type: :model do
         is_expected.to eq([ event_first, third_event ])
       end
     end
+    
+    context 'when the user filters by tag and location' do
+    
+      subject do
+        events = Event.by_tag( tag_first.id )
+        events.by_place( "Rio Turia" )
+      end
+    
+      it "assigns @events" do
+        is_expected.to eq([ third_event ])
+      end
+    end
   end
 end
