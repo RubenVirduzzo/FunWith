@@ -1,6 +1,23 @@
 <div class="body d-flex">
   <% if user_session %>
-    <%= render "sidebar" %>
+
+    <section class="d-flex w-100">
+        <%= render "sidebar" %>
+        <div class="text-center h-100 w-75 d-flex flex-column align-items-center" style="margin-left:22.5%;">
+          <%= render "nav_events" %>
+          <% if @events.present? %>
+            <div class="container d-flex flex-column align-items-center border rounded p-5">
+              <h1>Events: <%= @events.count %></h1>
+              <%= render "event" %>
+            </div>
+          <% else %>
+            <h6>
+            There are no events yet, add one!
+            <h6>
+            <%= link_to "New event", new_event_path %>
+          <% end %>
+        </div>
+    </section>
   <% else %>
     <div class="d-flex flex-column w-100 align-items-center">
 
@@ -10,5 +27,4 @@
     
     </div>
   <% end %>
-  
 </div>

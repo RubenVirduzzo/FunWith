@@ -1,0 +1,14 @@
+<% @events.each do |event| %>
+  <div id="events" class="event-items">
+    <a href="/events/<%= event.id %>">
+      <%= image_tag "example.jpeg", width: 280, height: 280 %>
+
+      <h3> <%= event.title %> </h3>
+      <p> <%= event.description %> </p>
+      <p> <%= event.date_event %> </p>
+      <p>
+        <%= link_to "Show this event", event %>
+      </p>
+    </a>
+  </div>
+<% end %>

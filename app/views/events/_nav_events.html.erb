@@ -1,0 +1,33 @@
+<div class="nav-events">
+  <div class="nav-tag">
+  <% Tag.all.each do |tag| %>
+    <li class="index-tag">
+      <%= image_tag "canoe.png", width: 30, height: 30 %>
+      <a class="tag-label" href="<%= admin_tag_path(tag) %>">
+        <%= tag.label %>
+      </a>
+    </li>
+  <% end %>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <%# <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by
+  </button>
+  <div class="dropdown-menu" data-bs-toggle="dropdown" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item rounded-2" href="/events">All events</a>
+    <a class="dropdown-item rounded-2" href="/events?params[]">Subcriptions</a>
+    <a class="dropdown-item rounded-2" href="/events?search[availables=true]">Events availables</a>
+    <a class="dropdown-item rounded-2" href="/events?search[availables=true]">Tags</a>
+    <a class="dropdown-item rounded-2" href="/events?search[availables=true]">Date</a>
+  </div> %>
+</div>
+

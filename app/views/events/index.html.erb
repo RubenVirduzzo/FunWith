@@ -1,21 +1,15 @@
-<div class="text-center d-flex flex-column justify-content-center align-items-center" style="margin-top:;">
+<section class="index-section">
+      <%= render "nav_events" %>
+      <%= render "search_form" %>
     
-  <% if @events %>
-    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
-    <% @events.each do |event| %>
-      <div id="events" class="bg-warning mt-5 p-4 rounded">
-          <h3> <%= event.title %> </h3>
-          <p> <%= event.description %> </p>
-          <h5> <%= event.date_event %> </h5>
-          <p>
-            <%= link_to "Show this event", event %>
-          </p>
-      </div>
-    <% end %>
-  <% else %>
-    <h5 class="m-2">
-    There are no events yet, add one!
-    </h5>
-    <%= link_to "Add new event", new_event_path, class: "btn bg-logo text-white" %>
-  <% end %>
-</div>
+      <% if @events.present? %>
+        <div class="container container-events">
+          <%= render "events" %>
+        </div>
+      <% else %>
+        <h6>
+        There are no events yet, add one!
+        <h6>
+        <%= link_to "New event", new_event_path %>
+      <% end %>
+</section>
