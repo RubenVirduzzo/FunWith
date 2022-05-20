@@ -3,9 +3,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :fullname, presence: true, length: { maximum: 30 }
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
   validates :date_of_birth, presence: true
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
 
   enum :role, {admin: 0, member: 1, banned: 2}, default: :member
   
