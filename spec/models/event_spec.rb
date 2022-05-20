@@ -221,7 +221,7 @@ RSpec.describe Event, type: :model do
     context 'when the user filters by user' do
     
       subject do
-        events = Event.by_organizer( second_user.id )
+        events = Event.by_organizer( second_user.username )
       end
         
       it "assigns @events" do
