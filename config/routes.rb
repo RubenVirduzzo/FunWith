@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :inscriptions
   end
 
-  root to: "home#index"
+  root to: "events#index"
   get "/users/:id", to: "users#show"
   get "/users/ban/:id", to: "users#ban"
   get "/users/unban/:id", to: "users#unban"

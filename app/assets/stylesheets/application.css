@@ -1,7 +1,18 @@
+a {
+  color: #00adb5;
+  transition: .3s;
+}
+
+a:hover {
+  color: #00949c;
+  text-decoration: none;
+}
+
 input {
   outline: none;
   border: none;
   border-radius: 15px;
+  padding-left: 10px;
 }
 
 .form-div {
@@ -14,7 +25,6 @@ input {
 
 .txt {
   color: #00adb5;
-  text-shadow: .2px .2px 1px #cacaca;
 }
 
 .nav-home {
@@ -25,6 +35,23 @@ input {
 .nav-home ul {
   margin: 0;
   padding: 0;
+}
+
+.nav-bar {
+  background-color: white;
+  border-bottom: solid #cacaca;
+  border-width: 1px;
+  font-weight: 600;
+}
+
+.nav-bar ul li a {
+  color: #585858;
+  transition: .3s;
+}
+
+.nav-bar ul li a:hover {
+  transform: scale(1.08);
+  color: #00adb5;
 }
 
 .nav-home ul li a {
@@ -73,6 +100,105 @@ input {
   border-radius: 15px
 }
 
-.event {
-  box-shadow: 0 0 12px #b4b4b4;
+.nav-events {
+  position: relative;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px -2px #e0e0e0;
+}
+
+.nav-tag {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  margin-right: 40px;
+  overflow:scroll;
+}
+
+.nav-tag::-webkit-scrollbar {
+  display: none;
+}
+
+.index-tag {
+  margin-right: 40px;
+  text-align: center;
+  list-style: none;
+  transition: .3s;
+}
+
+.index-tag:hover {
+  transform: scale(1.1);
+}
+
+.index-tag a {
+  color: #717171;
+  font-size: 12px;
+}
+
+.index-tag a:hover {
+  color: #222222;
+}
+
+.container-search-bar {
+  padding: 10px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  box-shadow: 0 0 8px  #e0e0e0;
+  border-radius: 30px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.date {
+  padding-left: 5px;
+  padding-right: 10px;
+  border-left: solid;
+  border-right: solid;
+}
+
+.submit {
+  padding-left: 10px;
+  padding-right: 10px;
+  background: white;
+  box-shadow: 0 0 8px  #e0e0e0;
+  transition: .3s;
+}
+
+.submit:hover {
+  color: #00adb5;
+}
+
+.container-events {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-items {
+  margin: 40px;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.event-items:hover {
+  transform: scale(1.1);
+}
+
+.event-items img {
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.event-items h3 {
+  color: #222222;
+}
+
+.event-items p {
+  font-weight: 300;
+  color: #717171;
 }
