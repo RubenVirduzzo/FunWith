@@ -176,13 +176,12 @@ RSpec.describe Event, type: :model do
 
   describe 'scopes' do
 
-    let( :first_tag ) { Tag.create( label: "first_tag", description: "DescriptionTag" )}
-    let(:second_tag) { Tag.create( label: "second_tag", description: "DescriptionTag" )}
+    let( :tag ) { Tag.create( label: "tag", description: "DescriptionTag" )}
     let(:first_user) { User.create( fullname: "first_user", username: "first", date_of_birth: Date.new(1991, 11, 26), email: "first_user@userfirst.com", password: "123456" )}
     let(:second_user) { User.create( fullname: "second_user", username: "second", date_of_birth: Date.new(2005, 11, 26), email: "second_user@usersecond.com", password: "123456" )}
-    let!(:first_event) { Event.create( title: "first_event", description: "first", date_event: "2022-05-11", duration_time: "10:15:00.000", place: "Malvarosa", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: first_user.id, tag_ids: [first_tag.id] )}
-    let!(:second_event) { Event.create( title: "second_event", description: "second", date_event: "2023-06-16", duration_time: "10:15:00.000", place: "Rio Turia", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: second_user.id, tag_ids: [second_tag.id] )}
-    let!(:third_event) { Event.create( title: "third_event", description: "third", date_event: "2023-06-18", duration_time: "10:15:00.000", place: "Rio Turia", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: second_user.id, tag_ids: [first_tag.id] )}
+    let!(:first_event) { Event.create( title: "first_event", description: "first", date_event: "2022-05-11", duration_time: "10:15:00.000", place: "Malvarosa", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: first_user.id, tag_ids: [tag.id] )}
+    let!(:second_event) { Event.create( title: "second_event", description: "second", date_event: "2023-06-16", duration_time: "10:15:00.000", place: "Rio Turia", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: second_user.id, tag_ids: [] )}
+    let!(:third_event) { Event.create( title: "third_event", description: "third", date_event: "2023-06-18", duration_time: "10:15:00.000", place: "Rio Turia", min_number_of_joiners: 1, max_number_of_joiners: 8, price: "5.0", min_age: "18", organizer_id: second_user.id, tag_ids: [tag.id] )}
   
     context 'when filter is by location' do
     
@@ -198,7 +197,7 @@ RSpec.describe Event, type: :model do
     context 'when the user filters by tag' do
     
       subject do
-        events = Event.by_tag( first_tag.id )
+        events = Event.by_tag( tag.id )
       end
     
       it "assigns events" do
@@ -209,7 +208,7 @@ RSpec.describe Event, type: :model do
     context 'when the user filters by tag and location' do
     
       subject do
-        events = Event.by_tag( first_tag.id )
+        events = Event.by_tag( tag.id )
         events.by_place( "Rio Turia" )
       end
     
