@@ -15,6 +15,18 @@ input {
   padding-left: 10px;
 }
 
+.image {
+  margin: 30px;
+  display: block;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+
+
 .form-div {
   background: #5d7a957a;
 }

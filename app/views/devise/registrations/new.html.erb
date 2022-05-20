@@ -35,6 +35,12 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-group text-center rounded border-0", placeholder: "Repeat password" %>
       </div>
 
+      <div class="field">
+       
+        <%= f.file_field image.representation(resize_to_limit: [100, 100]) %>
+
+      </div>
+
       <div class="actions m-2">
         <%= f.submit "Sign up", data: {turbo: false}, class: "btn bg-logo text-white" %>
       </div>
