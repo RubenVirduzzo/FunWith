@@ -33,7 +33,7 @@ class Event < ApplicationRecord
   end
 
   def self.organizer_events(organizer)
-    where( organizer_id: organizer.id )
+    where( organizer_id: organizer.id ) if organizer != nil
   end
 
   def self.places_list

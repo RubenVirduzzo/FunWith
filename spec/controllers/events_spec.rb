@@ -49,7 +49,7 @@ RSpec.describe EventsController, type: :controller do
     end
 
     context 'when the user filters by user' do
-      before { get :index, params: { search: { organizer_id: user_second.id }}}
+      before { get :index, params: { search: { organizer: user_second.username }}}
 
       it "assigns @events" do
         expect(assigns(:events).map(&:id)).to eq([ event_second.id, third_event.id ])
