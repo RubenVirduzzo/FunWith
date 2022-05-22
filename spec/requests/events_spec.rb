@@ -2,22 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "/events", type: :request do
   
-  let(:tag) do
-    Tag.create(
-      label: "LabelTag", 
-      description: "DescriptionTag"
-    )
-  end
+  let( :tag_params ) { create( :tag ) }
 
-  let(:user) do
-    User.create(
-      fullname: "testino",
-      username: "test",
-      date_of_birth: Date.new(1991, 11, 26),
-      email: "ciao123@ciao.com",
-      password: "123456"
-    )
-  end
+  let( :user_params ) { create( :user ) }
+ 
 
   let(:valid_attributes) do
     { 
@@ -30,8 +18,8 @@ RSpec.describe "/events", type: :request do
       max_number_of_joiners: 8,
       price: "5.0",
       min_age: "7",
-      organizer_id: user.id,
-      tag_ids: [tag.id]
+      organizer_id: user_params.id,
+      tag_ids: [tag_params.id]
     }
   end
 
@@ -47,8 +35,8 @@ RSpec.describe "/events", type: :request do
       max_number_of_joiners: 8,
       price: "5.0",
       min_age: "7",
-      organizer_id: user.id,
-      tag_ids: [tag.id]
+      organizer_id: user_params.id,
+      tag_ids: [tag_params.id]
     }  
   }
 
@@ -63,44 +51,42 @@ RSpec.describe "/events", type: :request do
       max_number_of_joiners: 8,
       price: "5.0",
       min_age: "7",
-      organizer_id: user.id,
-      tag_ids: [tag.id]
+      organizer_id: user_params.id,
+      tag_ids: [tag_params.id]
     }
   end
 
   before do
-    sign_in user
+    sign_in user_params
   end
 
   describe "GET /index" do
     it "renders a successful response" do
-      Event.create! valid_attributes
+      create( :event, organizer_id: user_params.id )
       get events_url
-      expect(response).to be_successful
+      expect( response ).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      event = Event.create! valid_attributes
-      get event_url(event)
-      expect(response).to be_successful
+      get event_url create( :event, organizer_id: user_params.id )
+      expect( response ).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      event = Event.create! valid_attributes
+      create( :event, organizer_id: user_params.id )
       get new_event_url
-      expect(response).to be_successful
+      expect( response ).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      event = Event.create! valid_attributes
-      get edit_event_url(event)
-      expect(response).to be_successful
+      get edit_event_url create( :event, organizer_id: user_params.id )
+      expect( response ).to be_successful
     end
   end
 
@@ -109,12 +95,12 @@ RSpec.describe "/events", type: :request do
       it "creates a new Event" do
         expect {
           post events_url, params: { event: valid_attributes }
-        }.to change(Event, :count).by(1)
+        }.to change( Event, :count ).by( 1 )
       end
 
       it "redirects to the created event" do
         post events_url, params: { event: valid_attributes }
-        expect(response).to redirect_to(event_url(Event.last))
+        expect( response ).to redirect_to( event_url( Event.last ) )
       end
     end
 
@@ -122,12 +108,12 @@ RSpec.describe "/events", type: :request do
       it "does not create a new Event" do
         expect {
           post events_url, params: { event: invalid_attributes }
-        }.to change(Event, :count).by(0)
+        }.to change( Event, :count ).by( 0 )
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post events_url, params: { event: invalid_attributes }
-        expect(response).to_not be_successful
+        expect( response ).to_not be_successful
       end
     end
   end
@@ -136,34 +122,33 @@ RSpec.describe "/events", type: :request do
     context "with valid parameters" do
   
       it "updates the requested event" do
-        event = Event.create! new_attributes
-        patch event_url(event), params: { event: new_attributes }
+        event = create( :event, organizer_id: user_params.id )
+        patch event_url( event ), params: { event: new_attributes }
         event.reload
-        expect(event.tags).to eq([tag])
+        expect( event.tags ).to eq( [ tag_params ] )
       end
 
     end
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        event = Event.create! new_attributes
-        patch event_url(event), params: { event: invalid_attributes}
-        expect(response).to_not be_successful
+        event = create( :event, organizer_id: user_params.id )
+        patch event_url( event ), params: { event: invalid_attributes}
+        expect( response ).to_not be_successful
     end
   end
 
   describe "DELETE /destroy" do
     it "destroys the requested event" do
-      event = Event.create! valid_attributes
+      event = create( :event, organizer_id: user_params.id )
       expect {
-        delete event_url(event)
-      }.to change(Event, :count).by(-1)
+        delete event_url( event )
+      }.to change( Event, :count ).by( -1 )
     end
 
     it "redirects to the events list" do
-      event = Event.create! valid_attributes
-      delete event_url(event)
-      expect(response).to redirect_to(events_url)
+      delete event_url create( :event, organizer_id: user_params.id )
+      expect( response ).to redirect_to( events_url )
       end
     end
   end
