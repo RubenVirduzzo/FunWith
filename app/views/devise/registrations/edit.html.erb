@@ -31,7 +31,15 @@
         <i>(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password", class: "form-group text-center rounded border-0 rounded border-0 mt-2", placeholder: "Current password" %>
       </div>
+      <div class="field">
+        <%= f.file_field :image %>
+      </div>
 
+      <div class="field">
+       
+        <%= f.file_field  resource.image.representation(resize_to_limit: [100, 100]) %>
+
+      </div>
       <div class="actions">
         <%= f.submit "Update", class: "btn bg-logo text-white mb-2" %>
       </div>

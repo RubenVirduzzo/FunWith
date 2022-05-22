@@ -11,6 +11,7 @@ class User < ApplicationRecord
   
   has_many :inscriptions
   has_many :events, through: :inscriptions
+  has_one_attached :image
 
   def age
     (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor

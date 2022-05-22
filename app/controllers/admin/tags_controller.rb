@@ -61,7 +61,7 @@ class Admin::TagsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tag_params
-      params.require(:tag).permit(:label, :description)
+      params.require(:tag).permit(:label, :description, :image)
     end
 
     def admin?   
