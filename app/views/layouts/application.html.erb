@@ -22,7 +22,7 @@
         <%= image_tag "FunWith.png", width: 60, height: 60, class: "m-1" %>
         <li class="nav-link"><a class=" nav-link" href="/">Home</a></li>
         <% if current_user %>
-          <li class="nav-link"><a class=" nav-link" href="/events?search[organizer_id]=<%= current_user.id %>">Your events</a></li>
+          <li class="nav-link"><a class=" nav-link" href="/events?search[organizer]=<%= current_user.username %>">Your events</a></li>
           <li class="nav-link"><a class=" nav-link" href="/users/<%= current_user.id %>">Profile</a></li>
         <% end %>
         <% if current_user && current_user.admin? %>
@@ -39,12 +39,12 @@
       </ul>
     </nav>
 
-    <div class="d-flex justify-content-center text-center">
+    <div class="d-flex m-2 justify-content-center text-center">
       <% if notice %>  
-        <p class="notice bg-logo w-25 text-white"><%= notice %></p>
+        <p class="notice bg-logo w-25 text-white  rounded"><%= notice %></p>
       <% end %> 
       <% if alert %>
-        <p class="alert bg-danger w-25 text-white"><%= alert %></p>
+        <p class="alert bg-danger w-25 text-white  rounded"><%= alert %></p>
       <% end %> 
     </div>
     <%= yield %>

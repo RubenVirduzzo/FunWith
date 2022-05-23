@@ -1,24 +1,26 @@
 <section class="container container-search-bar">
-  <%= form_with(scope: :search, url: events_url, method: "get") do |form| %>
+  <% if current_user %>
+    <%= form_with(scope: :search, url: events_url, method: "get") do |form| %>
+        
+      <div class="search-bar">
+        
+        <div>
+            <%= form.text_field :organizer, placeholder: "Organizer" %>
+        </div>
+
+        <div class="date">
+            <%= form.date_field :date %>
+        </div>
+
+        <div>
+          <%= select_tag "Place", :place %>
+        </div>
+
+        <div>
+          <%= form.submit "Search", class: "submit" %>
+        </div>
+      </div>
       
-    <div class="search-bar">
-      
-      <div>
-          <%= form.text_field :organizer, placeholder: "Organizer" %>
-      </div>
-
-      <div class="date">
-          <%= form.date_field :date %>
-      </div>
-
-      <div>
-        <%= select_tag "Place", :place %>
-      </div>
-
-      <div>
-        <%= form.submit "Search", class: "submit" %>
-      </div>
-    </div>
-    
+    <% end %>
   <% end %>
 </section>

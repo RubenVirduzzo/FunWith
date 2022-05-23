@@ -9,9 +9,9 @@ class User < ApplicationRecord
 
   enum :role, {admin: 0, member: 1, banned: 2}, default: :member
   
-  has_many :inscriptions
-  has_many :events, through: :inscriptions
-  has_one_attached :image
+  has_many :inscriptions , dependent: :destroy
+  has_many :events, through: :inscriptions , dependent: :destroy
+  has_one_attached :image,  dependent: :destroy
 
   def age
     (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor

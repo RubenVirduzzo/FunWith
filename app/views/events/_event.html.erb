@@ -61,8 +61,6 @@
         <%= button_to "Unsubscribe", event_inscription_url(event, current_user.inscription_by_event(event.id)), method: :delete, data: {turbo: false}, class: "btn bg-logo text-white" %>
       <% end %>
     <% end %>
-
-    <%= event.tag_ids %>
   </div>
   
 </section>

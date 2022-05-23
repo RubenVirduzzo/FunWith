@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   def show
     @event
   end
-
+  
   def new
     @event = Event.new
   end
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :date_event, :duration_time, :place, :min_number_of_joiners, :max_number_of_joiners, :price, :min_age, images: [],  tag_ids: [] )
+    params.require(:event).permit(:title, :description, :date_event, :duration_time, :place, :min_number_of_joiners, :max_number_of_joiners, :price, :min_age, :image,  tag_ids: [] )
   end
 
   def available_for_current_user?
