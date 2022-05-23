@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   has_many :inscriptions, dependent: :destroy
   has_many :users, through: :inscriptions
   has_and_belongs_to_many :tags
-  has_many_attached :images
+  has_one_attached :image
 
   scope :by_tag, ->(tag_id) { joins(:tags).where("tags.id"=> tag_id) }
   scope :by_place, ->(place) { where( place: place ) }

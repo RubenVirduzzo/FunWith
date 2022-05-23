@@ -1,6 +1,9 @@
 <section id="<%= dom_id tag %>" class="container d-flex flex-column justify-content-around align-items-center p-2">
 
   <div  class="bg-danger text-white p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
+    <div>
+      <%= image_tag tag.image, width: "100" %>
+    </div>
     <h3>Label:</h3>     
     <p class="border p-1 bg-success rounded"><%= tag.label %></p>
     <h3>Description:</h3>
