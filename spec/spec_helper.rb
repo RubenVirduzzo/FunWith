@@ -1,3 +1,4 @@
+include = 'support/factory_bot.rb'
 RSpec.configure do |config|
   
   config.expect_with :rspec do |expectations|
