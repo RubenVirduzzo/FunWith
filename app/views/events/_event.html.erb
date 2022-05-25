@@ -1,66 +1,72 @@
-<section class="container d-flex flex-column justify-content-around align-items-center p-2">
-
-  <div id="<%= dom_id event %>" class="bg-warning p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
-    <p>
-      <strong class="txt">Title:</strong>
-      <br>
-      <%= event.title %>
-    </p>
-    <p>
-      <strong class="txt">Description:</strong>
-      <br>
-      <%= event.description %>
-    </p>
-    <p>
-      <strong class="txt">Date event:</strong>
-      <br>
-      <%= event.date_event %>
-    </p>
-    <p>
-      <strong class="txt">Duration time:</strong>
-      <br>
-      <%= event.duration_time %>
-    </p>
-    <p>
-      <strong class="txt">Place:</strong>
-      <br>
-      <%= event.place %>
-    </p>
-    <p>
-      <strong class="txt">Price:</strong>
-      <br>
-      <%= event.price %>€
-    </p>
-    <p>
-      <strong class="txt">Min age:</strong>
-      <br>
-      <%= event.min_age %>
-    </p>
-
-    <div class="mb-5" style="width:170px; display:flex; flex-wrap:wrap; ">
-      <% event.tags.each do |tag| %>
-        <div class="text-white p-2 m-1 bg-danger rounded"><%= tag.label %></div>
-      <% end %>
+<section class="container event-item-container">
+  <div id="<%= dom_id event %>" class="event-item">
+    <h1><%= event.title %></h1>
+    <a href="#"><%= event.place %></a>
+    <div class="event-item-img">
+      <%= image_tag event.image, width: "100%" %>
     </div>
+    <div class="event-item-body">
+      <div class="event-item-left">
+        <h4>
+          <%= event.description %>
+        </h4>
+        <div class="event-item-tags">
+          <% event.tags.each do |tag| %>
+            <div class="text-white p-2 m-1 bg-danger rounded"><%= tag.label %></div>
+          <% end %>
+        </div>
+        <hr>
+          <div class="d-flex icon">
+            <div class="mr-3">
+              <%= image_tag "design.png", width: 30, height: 30, class: "m-1" %>
+            </div>
+            <div>
+              <h6>Designed by</h5>
+              <p class="ml-1"><%= User.find(event.organizer_id).username.camelize %></p>
+            </div>
+          </div>
+        <hr>
+        <p>
+          <% if !event.completed? %>
+            <br>
+            <strong class="txt"><%= event.places_left %> Places left</strong>
+          <% else %>
+            <strong class="txt">Subscriptions out!</strong>
+          <% end %>
+        </p>
+      </div>
+      <div class="event-item-right">
+        
+        <p>
+          <strong class="txt">Price:</strong>
+          <br>
+          <%= event.price %>€
+        </p>
+        <p>
+          <strong class="txt">Min age:</strong>
+          <br>
+          <%= event.min_age %>
+        </p>
+        <p>
+          <strong class="txt">Date event:</strong>
+          <br>
+          <%= event.date_event %>
+        </p>
+        <p>
+          <strong class="txt">Duration time:</strong>
+          <br>
+          <%= event.duration_time %>
+        </p>
+        <% if current_user.id != event.organizer_id && !current_user.banned? %>
 
-    <p>
-      <% if !event.completed? %>
-        <br>
-        <strong class="txt"><%= event.places_left %> Places left</strong>
-      <% else %>
-        <strong class="txt">Subscriptions out!</strong>
-      <% end %>
-    </p>
-
-    <% if current_user.id != event.organizer_id && !current_user.banned? %>
-
-      <% if !current_user.inscripted?(event) && !event.completed? %>
-        <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
-      <% end %>
-      <% if current_user.inscripted?(event) %>
-        <%= button_to "Unsubscribe", event_inscription_url(event, current_user.inscription_by_event(event.id)), method: :delete, data: {turbo: false}, class: "btn bg-logo text-white" %>
-      <% end %>
-    <% end %>
+          <% if !current_user.inscripted?(event) && !event.completed? %>
+            <%= button_to "Subscribe", event_inscriptions_url(event), class: "btn bg-logo text-white" %>
+          <% end %>
+          <% if current_user.inscripted?(event) %>
+            <%= button_to "Unsubscribe", event_inscription_url(event, current_user.inscription_by_event(event.id)), method: :delete, data: {turbo: false}, class: "btn bg-logo text-white" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  
 </section>
