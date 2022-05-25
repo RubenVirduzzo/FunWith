@@ -1,11 +1,11 @@
 <%= render @event %>
 
-<div class="d-flex flex-column align-items-center">
-  <div class="m-2">
+<div class="d-flex flex-column align-items-center m-5">
+  <div class="m-3">
   <% if current_user.id == @event.organizer_id  || current_user.admin? %>
     <%= link_to "Edit this event", edit_event_path(@event), class: "txt" %> |
   <% end %>
-    <%= link_to "Back to events", "/show_events", class: "txt" %>
+    <%= link_to "Back to events", "/", class: "txt" %>
   </div>
   <% if current_user.id == @event.organizer_id || current_user.admin? %>
     <%= button_to "Destroy this event", @event, method: :delete, class: "btn bg-logo text-white mb-5" %>

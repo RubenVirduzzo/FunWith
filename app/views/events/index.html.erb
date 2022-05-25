@@ -5,7 +5,7 @@
 
     <% if current_user && @events.present? %>
       <div class=" mt-5 text-center">
-        <%= link_to "Add event", new_event_path %>
+        <%= link_to "Add event", new_event_path, class: "txt" %>
       </div>
     <% end %>
   

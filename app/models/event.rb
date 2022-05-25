@@ -17,7 +17,6 @@ class Event < ApplicationRecord
 
   scope :by_tag, ->(tag_id) { joins(:tags).where("tags.id"=> tag_id) }
   scope :by_place, ->(place) { where( place: place ) }
-  #scope :by_organizer, ->(organizer_id) { where( organizer_id: organizer_id ) }
   scope :by_organizer, ->(organizer) { organizer_events( User.find_by( username: organizer.downcase.strip ) ) }
   scope :by_date, ->(date) { where( "date_event >= ?", date ) }
 
