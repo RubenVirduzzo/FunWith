@@ -1,10 +1,8 @@
 a {
-  color: #00adb5;
   transition: .3s;
 }
 
 a:hover {
-  color: #00949c;
   text-decoration: none;
 }
 
@@ -13,21 +11,6 @@ input {
   border: none;
   border-radius: 15px;
   padding-left: 10px;
-}
-
-.image {
-  margin: 30px;
-  display: block;
-  align-items: center;
-  width: 300px;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  border-radius: 12px;
-}
-
-.image-profile img {
-  width: 300px;
 }
 
 .form-div {
@@ -39,7 +22,10 @@ input {
 }
 
 .txt {
-  color: #00adb5;
+  color: #00adb5 !important;
+}
+.txt-light {
+  color: #898989;
 }
 
 .nav-home {
@@ -303,4 +289,68 @@ input {
 
 .event-item-right:hover {
   transform: scale(1.03);
+}
+
+.profile-left {
+  width: 700px;
+  padding: 50px;
+  box-shadow: 0 0 8px  #e0e0e0;
+  border-radius: 10px;
+}
+
+.image {
+  display: block;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+
+.image-profile {
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+.image-profile img {
+  width: 300px;
+}
+
+.profile-left-dx h1 {
+  font-weight: 400;
+}
+
+.profile-right {
+  height: 600px;
+  overflow-y: scroll;
+  width: 380px;
+  padding: 20px;
+  box-shadow: 0 0 8px  #e0e0e0;
+  border-radius: 10px;
+  scrollbar-width: 1px;
+}
+
+.profile-right h2 {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.friends-container {
+  border-radius: 12px;
+}
+
+.friend-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.friend {
+  text-align: start;
+}
+
+.ban {
+  color: white !important;
 }
