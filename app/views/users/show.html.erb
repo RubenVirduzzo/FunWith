@@ -6,9 +6,9 @@
           <%= image_tag @user.image %>
         </div>
         <hr>
-        <p class="txt-light"><%= Event.by_organizer(@user.username).count %> publications</p>
+        <a href="/events?search[organizer]=<%= @user.username %>"><p class="txt"><%= Event.by_organizer(@user.username).count %> publications</p></a>
         <hr>
-        <p class="txt-light"><%= @user.events.count %> subcribtions</p>
+        <a href="/events?search[user_id]=<%= @user.id %>"><p class="txt"><%= @user.events.count %> subcribtions</p></a>
         <hr>
       </div>
       <div class="profile-left-dx pl-5">
