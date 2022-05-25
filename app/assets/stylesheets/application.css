@@ -13,6 +13,7 @@ input {
   border: none;
   border-radius: 15px;
   padding-left: 10px;
+  box-shadow: 0 0 8px  #ababab;
 }
 
 .image {
@@ -31,7 +32,8 @@ input {
 }
 
 .form-div {
-  background: #5d7a957a;
+  color: #4f4f4f;
+  box-shadow: 0 0 8px  #ababab;
 }
 
 .bg-logo {
