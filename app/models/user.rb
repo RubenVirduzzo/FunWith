@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :inscriptions , dependent: :destroy
   has_many :events, through: :inscriptions , dependent: :destroy
   has_one_attached :image,  dependent: :destroy
+  has_many :active_friendship, class_name: "Friendship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_friendship, class_name: "Friendship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followed_user, through: :active_friendship, source: :followed_user
+  has_many :follower_user, through: :passive_friendship, source: :follower_user
 
   def age
     (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor
