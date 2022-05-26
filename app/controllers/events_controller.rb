@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     @events = @events.by_place( params.dig( :search, :place )) if params.dig( :search, :place)
     @events = @events.by_organizer( params.dig( :search, :organizer )) if params.dig( :search, :organizer)
     @events = @events.by_date( params.dig( :search, :date )) if params.dig( :search, :date)
+    @events = User.find(params.dig( :search, :user_id )).inscriptions.map(&:event) if params.dig( :search, :user_id )
     @events
   end
 
