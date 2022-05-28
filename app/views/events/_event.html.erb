@@ -22,7 +22,7 @@
             </div>
             <div>
               <h6>Designed by</h5>
-              <p class="ml-1"><%= User.find(event.organizer_id).username.camelize %></p>
+              <a class="ml-1" href="/users/<%= event.organizer_id %>"><%= User.find(event.organizer_id).username.camelize %></a>
             </div>
           </div>
         <hr>
