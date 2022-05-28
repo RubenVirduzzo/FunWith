@@ -39,7 +39,6 @@ class InscriptionsController < ApplicationController
     end
   end
 
-  
   def destroy
     if @inscription.destroy 
       respond_to do |format|
@@ -54,7 +53,6 @@ class InscriptionsController < ApplicationController
 
   private
 
-    # Only allow a list of trusted parameters through.
     def inscription_params
       params.permit(:event_id, :id)
     end

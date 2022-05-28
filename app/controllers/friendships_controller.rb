@@ -1,22 +1,21 @@
 class FriendshipsController < ApplicationController
-  
+
   def create
-    @followed_user = User.find( params[ :friendships ] [ :followed_id ] )
-    @friendships = current_user.active_friendships.new( followed_id: @followed_user.id )
+    @user = User.find( params[ :id ] )
+    @friendships = current_user.active_friendship.new( followed_id: @user.id )
     if @friendships.save
-      flash[ :message ] = "Follow Successful"
+      redirect_to "/users/#{params[ :id ]}"
     else
-      flash[ :message ] = "Follow Unuccessful"
+      redirect_to "/users/#{params[ :id ]}"
     end
   end
   
   def destroy
-    @friendships = friendships.find( params[ :id ] )
-    if @friendships.follower_user = current_user
-      @friendships.destroy
-      flash[ :message ] = "Unfollowed"
+    @friendships = Friendship.find_by( follower_user: current_user, followed_user: params[ :id ] )
+    if @friendships.destroy
+      redirect_to "/users/#{params[ :id ]}"
     else
-      flash[ :message ] = "Unfollowed Unuccessful"
+      redirect_to "/users/#{params[ :id ]}"
     end
   end
 end
