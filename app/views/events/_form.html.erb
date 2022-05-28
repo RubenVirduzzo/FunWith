@@ -1,6 +1,9 @@
 <section class="d-flex flex-column align-items-center">
+  
   <%= form_with(model: event) do |form| %>
+      
       <% if event.errors.any? %>
+        
         <div style="color: red" class="text-center mt-5">
           <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
             <ul>
@@ -8,31 +11,36 @@
                 <li class="nav-link"><%= error.full_message %></li>
               <% end %>
             </ul>
-          </div>
-      <% end %>
-    <div class="form-div m-5 p-5 d-flex flex-column  align-items-center w-100 text-center rounded">
+        </div>
 
-      <h1>Event</h1>
+      <% end %>
+    
+    <div class="form-div m-5 p-5 d-flex flex-column  align-items-center w-100 text-center rounded">
       
+      <h1>Event</h1>
+
       <div class="d-flex">
         <%= form.text_field :title, placeholder: "Title", class: "text-center m-3" %>
       </div>
+
       <div>
         <%= form.text_area :description, placeholder: "Description", class: "text-center m-3" %>
       </div>
-      
+
       <div>
           <%= form.label :date_event, style: "display: block" %>
           <%= form.datetime_field :date_event, class: "text-center m-1" %>
       </div>
+
       <div>
           <%= form.label :duration_time, style: "display: block" %>
-          <%= form.time_field :duration_time, class: "m-1"  %>
+          <%= form.time_select :duration_time, :class=>"form-control",:placeholder=>"Enter start time",:required=>true %>
       </div>
 
       <div>
         <%= form.text_field :place, placeholder: "Place", class: "text-center m-3" %>
       </div>
+
       <div>
         <%= form.text_field :min_number_of_joiners, placeholder: "Min number of joiners", class: "text-center m-3" %>
       </div>
@@ -40,15 +48,13 @@
       <div>
         <%= form.text_field :max_number_of_joiners, placeholder: "Max number of joiners", class: "text-center m-3" %>
       </div>
-
-      
+ 
       <div class="label">
         <%= form.collection_check_boxes :tag_ids, Tag.order(:label), :id, :label %> 
       </div>
       
-
       <div>
-        <%= form.number_field :price, placeholder: "Price", class: "text-center", step:"any" %>
+        <%= form.number_field :price, placeholder: "Price", class: "text-center", in: 1.00..2000.00, step: 0.50 %>
       </div>
 
       <div>
@@ -63,6 +69,5 @@
         <%= form.submit class: "btn bg-logo text-white" %>
       </div>
     </div>
-    
   <% end %>
 </section>

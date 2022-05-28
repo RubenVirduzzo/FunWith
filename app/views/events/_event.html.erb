@@ -50,12 +50,12 @@
         <p>
           <strong class="txt">Date event:</strong>
           <br>
-          <%= event.date_event.strftime("%d, %B, %Y") %>
+          <%= event.date_event.strftime("%d, %B, %Y at %H:%M") %>
         </p>
         <p>
           <strong class="txt">Duration time:</strong>
           <br>
-          <%= event.duration_time.strftime("%d, %B, %Y") %>
+          <%= event.duration_time %>
         </p>
         <% if current_user.id != event.organizer_id && !current_user.banned? %>
 
