@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @active_friendship = current_user.active_friendship
-    @passive_friendship = current_user.active_friendship
+    @friend_list = @user.followed_user if params.dig( :search, :followed )
+    @friend_list = @user.follower_user if params.dig( :search, :follower )
   end
 
   def ban
