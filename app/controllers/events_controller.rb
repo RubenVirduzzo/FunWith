@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    current_user.admin!
     @events = available_for_current_user? ? Event.available_for(current_user) : Event.all
     @events = @events.by_tag(params.dig( :search, :tag_ids ).to_i) if params.dig( :search, :tag_ids )
     @events = @events.by_place( params.dig( :search, :place )) if params.dig( :search, :place)
