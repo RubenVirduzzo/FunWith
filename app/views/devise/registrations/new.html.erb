@@ -18,6 +18,11 @@
         <%= f.label :date_of_birth %><br />
         <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class: "form-group text-center border-0" %>
       </div>
+      
+      <div class="field d-block">
+        <%= f.label :description %><br/>
+        <%= f.text_area :description, autocomplete: "image" %>
+      </div>
 
       <div class="field form-group">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-group text-center border-0", placeholder: "E-mail" %>

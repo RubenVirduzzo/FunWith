@@ -14,26 +14,14 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="field">
-        <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-group text-center rounded border-0 rounded border-0 mt-2", placeholder: "New password" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
+      <div class="field d-block">
+        <%= f.label :description %><br/>
+        <%= f.text_area :description, autocomplete: "image" %>
       </div>
 
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-group text-center rounded border-0 rounded border-0 mt-2", placeholder: "Password confirmation" %>
-      </div>
-
-      <div class="field">
-        <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-group text-center rounded border-0 rounded border-0 mt-2", placeholder: "Current password" %>
-      </div>
       <div class="field d-block">
         <%= resource.image.name %>
-        <%= f.file_field :image %>
+        <%= f.file_field :image, autocomplete: "image" %>
       </div>
 
       <div class="actions">
