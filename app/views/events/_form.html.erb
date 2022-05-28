@@ -34,7 +34,7 @@
 
       <div>
           <%= form.label :duration_time, style: "display: block" %>
-          <%= form.time_select :duration_time, :class=>"form-control",:placeholder=>"Enter start time",:required=>true %>
+          <%= form.time_select :duration_time, include_blank: true, :class=>"form-control",:required=>true %>
       </div>
 
       <div>
