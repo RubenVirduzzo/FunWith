@@ -324,7 +324,7 @@ input {
 }
 
 .profile-right {
-  height: 600px;
+  max-height: 550px;
   overflow-y: scroll;
   width: 380px;
   padding: 20px;
@@ -333,24 +333,41 @@ input {
   scrollbar-width: 1px;
 }
 
-.profile-right h2 {
+.friendship h4 {
+  color: #585858;
   font-weight: 400;
   margin-bottom: 20px;
+  transition: .3s;
+}
+
+.friendship h4:hover  {
+  color: #00adb5;
+}
+
+.friendship h4:active  {
+  color: #00c6d0;
 }
 
 .friends-container {
   border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .friend-img {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 100px;
   overflow: hidden;
 }
 
 .friend {
   text-align: start;
+  font-size: 13px;
+}
+
+.btn-friend {
+  font-size: 10px;
 }
 
 .ban {
