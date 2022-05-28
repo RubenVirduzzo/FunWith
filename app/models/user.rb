@@ -3,8 +3,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :fullname, presence: true, length: { maximum: 30 }
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, length: { maximum: 13 }, uniqueness: true
   validates :date_of_birth, presence: true
+  validate :registrable?
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
 
   enum :role, {admin: 0, member: 1, banned: 2}, default: :member
@@ -16,6 +17,12 @@ class User < ApplicationRecord
   has_many :passive_friendship, class_name: "Friendship", foreign_key: "followed_id", dependent: :destroy
   has_many :followed_user, through: :active_friendship, source: :followed_user
   has_many :follower_user, through: :passive_friendship, source: :follower_user
+
+  def registrable?
+    if age < 9
+      errors.add( :date_of_birth, 'You should be over 9 years old.' )
+    end
+  end
 
   def age
     (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor

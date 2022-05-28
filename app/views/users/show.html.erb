@@ -5,6 +5,10 @@
         <div class="image image-profile d-flex">
           <%= image_tag @user.image %>
         </div>
+        <div class="d-flex align-items-baseline">
+          <%= image_tag "pos-icon.png", height: "15" %>
+          <a class="txt pl-1">Valencia, Spain</a>
+        </div>
         <hr>
         <a href="/events?search[organizer]=<%= @user.username %>"><p class="txt"><%= Event.by_organizer(@user.username).count %> publications</p></a>
         <hr>
@@ -14,7 +18,6 @@
       <div class="profile-left-dx pl-5">
         <div class="d-flex align-items-center justify-content-between mb-2">
           <h1><%= @user.username.camelcase %></h1>
-          <a class="txt">Valencia, Spain</a>
           <% if current_user.followed_user.include?(@user) && @user != current_user %>
             <button class="btn bg-logo"><a href="/users/unfollow/<%= @user.id %>" class="ban text-white">Unfollow</a></button> 
           <% end %>
@@ -39,7 +42,7 @@
         <hr>
         <div>
           <h4 class="mr-2">About</h4>
-          <p class="txt-light w-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          <p class="txt-light w-100"><%= @user.description %></p>
         </div>
       </div>
     </div>
