@@ -6,12 +6,24 @@ a:hover {
   text-decoration: none;
 }
 
+.link {
+  color: #00c6d0;
+}
+
+.link:hover {
+  color: #00adb5;
+}
+
+.container-tag-form form {
+  width: 260px;
+}
+
 input {
   outline: none;
-  border: none;
-  border-radius: 15px;
+  border-width: .1px;
+  border-color: #e4e4e4;
+  border-radius: 10px;
   padding-left: 10px;
-  box-shadow: 0 0 8px  #ababab;
 }
 
 .form-div {
