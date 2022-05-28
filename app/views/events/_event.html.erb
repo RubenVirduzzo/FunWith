@@ -29,7 +29,7 @@
         <p>
           <% if !event.completed? %>
             <br>
-            <strong class="txt"><%= event.places_left %> Places left</strong>
+            <strong><%= event.places_left %> Places left</strong>
           <% else %>
             <strong class="txt">Subscriptions out!</strong>
           <% end %>
@@ -55,7 +55,7 @@
         <p>
           <strong class="txt">Duration time:</strong>
           <br>
-          <%= event.duration_time %>
+          <%= event.duration_time.strftime("%H,%M hours") %>
         </p>
         <% if current_user.id != event.organizer_id && !current_user.banned? %>
 
