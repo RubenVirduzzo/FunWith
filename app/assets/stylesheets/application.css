@@ -173,6 +173,11 @@ input {
   border-radius: 30px;
 }
 
+.container-search-bar input {
+  text-align: center;
+  border: none;
+}
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -184,13 +189,37 @@ input {
   padding-right: 10px;
   border-left: solid;
   border-right: solid;
+  border-width: 1.5px;
+  color: #4f4f4f;
+}
+
+.availables {
+  width: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  font-size: 15px;
+  padding-top: 15px;
+  padding-left: 30px;
+  margin-top: -5px;
+}
+
+.availables label {
+  margin-left: .5vw;
+  color: #4f4f4f;
+}
+
+.place {
+  border-right: solid;
+  border-width: 1.5px;
+  color: #4f4f4f;
 }
 
 .submit {
-  padding-left: 10px;
-  padding-right: 10px;
+  color: #4f4f4f;
+  padding-left: 20px;
+  padding-right: 15px;
   background: white;
-  box-shadow: 0 0 8px  #e0e0e0;
   transition: .3s;
 }
 

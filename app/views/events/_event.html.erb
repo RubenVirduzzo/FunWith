@@ -55,7 +55,7 @@
         <p>
           <strong class="txt">Duration time:</strong>
           <br>
-          <%= event.duration_time.strftime("%H,%M hours") %>
+          <%= event.duration_time.to_s.first %><%= event.duration_time.to_s[-2..-1] %> H 
         </p>
         <% if current_user.id != event.organizer_id && !current_user.banned? %>
 
