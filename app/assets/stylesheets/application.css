@@ -166,8 +166,6 @@ input {
 .container-search-bar {
   padding: 10px;
   width: fit-content;
-  display: flex;
-  justify-content: center;
   margin-top: 20px;
   box-shadow: 0 0 8px  #e0e0e0;
   border-radius: 30px;

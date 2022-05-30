@@ -19,6 +19,7 @@ class Event < ApplicationRecord
   scope :by_place, ->(place) { where( place: place ) }
   scope :by_organizer, ->(organizer) { organizer_events( User.find_by( username: organizer.downcase.strip ) ) }
   scope :by_date, ->(date) { where( "date_event >= ?", date ) }
+  scope :by_follows, ->(follows) { where( organizer_id: follows ) }
 
   def self.available_for(user)
     # Event.joins(:inscriptions).where.not("user_id != ?", user.id).or(where("user_id == ?", "")).where.not(organizer_id: user.id).where(  "min_age <= ?", user.age )
