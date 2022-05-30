@@ -1,26 +1,31 @@
-<section class="container container-search-bar">
+<section class="container d-flex justify-content-center">
   <% if current_user %>
-    <%= form_with(scope: :search, url: events_url, method: "get") do |form| %>
-        
-      <div class="search-bar">
-        
-        <div>
-            <%= form.text_field :organizer, placeholder: "Organizer" %>
-        </div>
+    <div>
+      <%= form_with(scope: :search, url: events_url, method: "get") do |form| %>
+        <div class="container-search-bar">
+          <div class="search-bar">
+            <div>
+                <%= form.text_field :organizer, placeholder: "Organizer" %>
+            </div>
 
-        <div class="date">
-            <%= form.date_field :date %>
-        </div>
+            <div class="date">
+                <%= form.date_field :date %>
+            </div>
 
-        <div>
-          <%= select_tag "Place", :place %>
-        </div>
+            <div class="place">
+              <%= form.text_field :place, placeholder: "Place" %>
+            </div>
 
-        <div>
-          <%= form.submit "Search", class: "submit" %>
+            <div>
+              <%= form.submit "Search", class: "submit" %>
+            </div>
+          </div>
+        </div>
+        <div class="availables">
+          <%= check_box_tag( "search[available]",  true ) %>
+          <%= label "search[available]", "availables" %>         
         </div>
       </div>
-      
-    <% end %>
+      <% end %>
   <% end %>
 </section>

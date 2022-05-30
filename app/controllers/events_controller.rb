@@ -3,12 +3,14 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @events = available_for_current_user? ? Event.available_for(current_user) : Event.all
+    @events = Event.all
     @events = @events.by_tag(params.dig( :search, :tag_ids ).to_i) if params.dig( :search, :tag_ids )
-    @events = @events.by_place( params.dig( :search, :place )) if params.dig( :search, :place)
-    @events = @events.by_organizer( params.dig( :search, :organizer )) if params.dig( :search, :organizer)
-    @events = @events.by_date( params.dig( :search, :date )) if params.dig( :search, :date)
-    @events = User.find(params.dig( :search, :user_id )).inscriptions.map(&:event) if params.dig( :search, :user_id )
+    @events = @events.by_place( params.dig( :search, :place ) ) if params.dig( :search, :place) && params.dig( :search, :place) != ""
+    @events = @events.by_organizer( params.dig( :search, :organizer ) ) if params.dig( :search, :organizer)
+    @events = @events.by_date( params.dig( :search, :date ) ) if params.dig( :search, :date) 
+    @events = @events.available_for(current_user) if params.dig( :search, :available ) == "true"
+    @events = User.find(params.dig( :search, :user_id ) ).inscriptions.map(&:event) if params.dig( :search, :user_id )
+    
     @events
   end
 
@@ -66,7 +68,7 @@ class EventsController < ApplicationController
                                   :price, :min_age, :image,  tag_ids: [] )
   end
 
-  def available_for_current_user?
-    current_user.present? && params.dig( :search, :available ) == "true"
-  end
+  # def available_for_current_user?
+  #   current_user.present? && params.dig( :search, :available ) == "true"
+  # end
 end

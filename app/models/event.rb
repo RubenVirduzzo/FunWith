@@ -21,7 +21,8 @@ class Event < ApplicationRecord
   scope :by_date, ->(date) { where( "date_event >= ?", date ) }
 
   def self.available_for(user)
-    Event.where.not(organizer_id: user.id) - user.inscriptions.map(&:event) - Event.all.select{|event| event.completed?}
+    # Event.joins(:inscriptions).where.not("user_id != ?", user.id).or(where("user_id == ?", "")).where.not(organizer_id: user.id).where(  "min_age <= ?", user.age )
+    Event.where.not(organizer_id: user.id).and( Event.where( "min_age <= ?", user.age )) - user.inscriptions.map(&:event) - Event.all.select{|event| event.completed?}
   end
 
   def places_left
