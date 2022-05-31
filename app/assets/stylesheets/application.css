@@ -6,6 +6,10 @@ a:hover {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .link {
   color: #00c6d0;
 }
@@ -28,7 +32,18 @@ input {
 
 .form-div {
   color: #4f4f4f;
-  box-shadow: 0 0 8px  #ababab;
+  background: #e5e5e5;
+  box-shadow: 0 0 2px  #ababab;
+}
+
+.form-new textarea {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border-color: #cacaca;
+}
+
+.image-field {
+  padding-left: 110px;
 }
 
 .bg-logo {
@@ -163,6 +178,14 @@ input {
   color: #00adb5;
 }
 
+.container-search {
+  transition: .3s;
+}
+
+.container-search:hover {
+  transform: scale(1.03);
+}
+
 .container-search-bar {
   padding: 10px;
   width: fit-content;
@@ -223,6 +246,10 @@ input {
 
 .submit:hover {
   color: #00adb5;
+}
+
+.form-new {
+  width: 30vw;
 }
 
 .container-events {
@@ -356,6 +383,18 @@ input {
 
 .image-profile img {
   width: 300px;
+}
+
+.image-edit {
+  padding-left: 110px;
+  margin: 30px;
+  margin-top: 0;
+}
+
+.img {
+  margin-left: -110px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 .profile-left-dx h1 {

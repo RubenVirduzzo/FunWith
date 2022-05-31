@@ -4,7 +4,7 @@
     <%= render "search_form" %>
 
     <% if current_user && @events.present? %>
-      <div class=" mt-5 text-center">
+      <div class="mt-3 text-center">
         <%= link_to "Add event", new_event_path, class: "txt" %>
       </div>
     <% end %>
