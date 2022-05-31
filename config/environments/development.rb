@@ -76,8 +76,8 @@ Rails.application.configure do
   config.sass.line_comments = false
   config.sass.cache = false
 
-  # config.sass.preferred_syntax = :sass
-  # config.sass.syntax = :sass
+  config.sass.preferred_syntax = :sass
+  config.sass.syntax = :sass
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
