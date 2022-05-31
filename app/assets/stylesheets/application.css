@@ -402,6 +402,7 @@ input {
 }
 
 .profile-right {
+  height: max-content;
   max-height: 550px;
   overflow-y: scroll;
   width: 380px;
@@ -411,19 +412,25 @@ input {
   scrollbar-width: 1px;
 }
 
-.friendship h4 {
-  color: #585858;
-  font-weight: 400;
+.friendship {
+  color: #4f4f4f;
+  width: 49%;
   margin-bottom: 20px;
   transition: .3s;
+  border: none;
+  background: white;
 }
 
-.friendship h4:hover  {
-  color: #00adb5;
+.friendship:hover {
+  color: #009ba3;
 }
 
-.friendship h4:active  {
-  color: #00c6d0;
+.active {
+  color: #00adb5 !important;
+}
+
+.friendship h4 {
+  font-weight: 400;
 }
 
 .friends-container {
