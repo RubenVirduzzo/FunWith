@@ -48,8 +48,8 @@
     </div>
     <div class="profile-right text-center">
       <div class="d-flex justify-content-around align-items-baseline friends-link">
-        <a class="friendship" href="/users/<%= @user.id %>?search[followed]=0"><h4>Follow</h4></a>
-        <a class="friendship" href="/users/<%= @user.id %>?search[follower]=1"><h4>Followers</h4></a>
+        <a class="friendship <%= 'active' if !@active  %>" href="/users/<%= @user.id %>?search[followed]=0"><h4>Follow</h4></a>
+        <a class="friendship <%= 'active' if @active %>" href="/users/<%= @user.id %>?search[follower]=1"><h4>Followers</h4></a>
       </div>
 
       <% if @friend_list.present? %>

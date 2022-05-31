@@ -5,7 +5,7 @@
   <div id="tags">
     <ul class="tag p-0">
       <% @tags.each do |tag| %>
-        <li class="nav-link m-4 bg-success rounded"><a class="text-white" href="<%= admin_tag_path(tag) %>"><%= tag.label %></a></li>
+        <li class="nav-link m-4 bg-warning rounded"><a class="text-white" href="<%= admin_tag_path(tag) %>"><%= tag.label %></a></li>
       <% end %>
     </ul>
   </div>
