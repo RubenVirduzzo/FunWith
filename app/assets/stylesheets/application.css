@@ -71,10 +71,9 @@ input {
 
 /* -------------------------------------------- End navbar layout -------------------------------------------- */
 
-/* -------------------------------------------- Start Profile -------------------------------------------- */
+/* --------------------------- Start approved --------------------------- */
 
-
-/* ------- Start approved ------ */
+/* ------------ Start Generics ----------- */
 
 .bg-logo {
   background: #00adb5;
@@ -84,38 +83,48 @@ input {
   color: #00adb5;
 }
 
-/* ------- End approved ------ */
+/* ------------ End Generics ----------- */
 
-/* ------- Mobile ------ */
-/* 
-.container-profile {
-  padding-top: 5vh;
-  margin-bottom: 5vh;
+/* --------------------- Start Event Profile --------------------*/
+
+.event-item-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.div-edit-event {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center; 
-} */
+  align-items: center;
+}
+
+.event-item-right {
+  height: fit-content;
+  padding: 30px;
+  text-align: center;
+  transition: .3s;
+}
+
+.event-item-right:hover {
+  transform: scale(1.03);
+}
+
+/* --------------------- End Event Profile --------------------*/
+
+/* --------------------- Start User Profile --------------------*/
+
+/* --------------------- End User Profile --------------------*/
+
+/* ---------------- End approved ------------ */
+
+/* ------- Mobile ------ */
 
 /* ------- Tablet ------ */
 
-/* .container-profile {
-  padding-top: 5vh;
-  margin-bottom: 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center; 
-} */
-
 /* ------- Bigger ------ */
-
-/* .container-profile {
-  padding-top: 5vh;
-  margin-bottom: 5vh;
-  display: flex;
-  justify-content: space-between;
-} */
 
 @media only screen and (max-width: 760px) {
 
@@ -288,6 +297,56 @@ input {
   }
 
   /* -------------------------------------------- End Profile -------------------------------------------- */
+
+  /* -------------------------------------------- Start Event -------------------------------------------- */
+
+  /* --------------------- Start Event Profile --------------------*/
+
+  .event-item-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+
+  .event-item {
+    margin-top: 30px;
+  }
+
+  .event-item-img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .event-item-body {
+    padding: 10px;
+  }
+
+  .event-item-left h4 {
+    margin-bottom: 20px;
+  }
+
+  .event-label {
+    padding: 6px;
+    width: fit-content;
+  }
+
+  .event-item-right {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .div-edit-event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* --------------------- End Event Profile --------------------*/
+
+  /* -------------------------------------------- End Event -------------------------------------------- */
+
 }
 
 @media only screen and (min-width:760) and (max-width: 1200px) {
@@ -299,160 +358,6 @@ input {
   /* -------------------------------------------- Home -------------------------------------------- */
   /* -------------------------------------------- Event -------------------------------------------- */
   /* -------------------------------------------- Tag -------------------------------------------- */
-
-  /* -------------------------------------------- Start Profile -------------------------------------------- */
-
-  
-  .container-profile {
-    padding-top: 5vh;
-    margin-bottom: 5vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center; 
-  }
-
-  .profile-left {
-    display: flex;
-    justify-content: space-between;
-    width: 700px;
-    padding: 50px;
-    box-shadow: 0 0 8px  #e0e0e0;
-    border-radius: 10px;
-    margin-bottom: 5rem;
-  }
-
-  .image-profile {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    border-radius: 12px;
-    width: 200px;
-    margin-bottom: 40px;
-  }
-
-  .image-profile img {
-    width: 300px;
-  }
-
-  .profile-left-sx a {
-    color: #00adb5 !important;
-  }
-
-  .intern {
-    display: flex;
-    align-items: baseline;
-  }
-
-  .intern a {
-    padding-left: .3vw;
-  }
-
-  .img {
-    margin-left: -110px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-  }
-
-  .profile-left-dx {
-    padding-left: 3.5vw;
-  }
-
-  .follows {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5vh;
-  }
-
-  .profile-left-dx h1,.profile-left-dx h4 {
-    font-weight: 400;
-    color: #222222;
-  }
-
-  .ban {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .member {
-    display: flex;
-    align-items: baseline;
-    margin-top: 1.4rem;
-  }
-
-  .member h4 {
-    margin-right: .5vw;
-  }
-
-  .profile-right {
-    height: max-content;
-    max-height: 550px;
-    overflow-y: scroll;
-    width: 380px;
-    margin-left: 20px;
-    padding: 20px;
-    box-shadow: 0 0 8px  #e0e0e0;
-    border-radius: 10px;
-    scrollbar-width: 1px;
-  }
-
-  .friends-links {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: baseline;
-  }
-
-  .friendship {
-    color: #4f4f4f;
-    width: 49%;
-    margin-bottom: 20px;
-    transition: .3s;
-  }
-
-  .friendship:hover {
-    color: #009ba3;
-  }
-
-  .friendship h4 {
-    font-weight: 400;
-  }
-
-  .active {
-    color: #00adb5;
-  }
-
-  .friends-container {
-    border-radius: 12px;
-    margin: .6vw;
-    padding: .8vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .friend-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    overflow: hidden;
-  }
-
-  .friend {
-    text-align: start;
-    font-size: 13px;
-  }
-
-  .link-edit-profile {
-    text-align: center;
-  }
-
-  /* -------------------------------------------- End Profile -------------------------------------------- */
 
 }
 
@@ -485,7 +390,6 @@ input {
   }
   
   /* -------------------------------------------- Tag -------------------------------------------- */
-  
   
   .tag {
     display: flex;
@@ -673,6 +577,15 @@ input {
     width: 250px;
     overflow: hidden;
   }
+
+  /* --------------------- Start Event Profile --------------------*/
+
+  .event-label {
+    padding: .5rem;
+    margin: .2rem;
+  }
+
+  /* --------------------- End Event Profile --------------------*/
   
   /* -------------------------------------------- Event -------------------------------------------- */
   
@@ -686,14 +599,6 @@ input {
   .event-img img {
     height: 280px;
     min-width: 280px;
-  }
-  
-  .event-item-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
   }
   
   .event-item {
@@ -750,7 +655,6 @@ input {
   .event-item-right:hover {
     transform: scale(1.03);
   }
-  
   
   /* -------------------------------------------- Start Profile -------------------------------------------- */
   
@@ -897,7 +801,6 @@ input {
   }
 
   /* ----------------------------------- End Profile ------------------------------------ */
-
   
   /* ----------------------- edit-profile ----------------------- */
   
