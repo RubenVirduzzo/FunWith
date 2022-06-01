@@ -1,7 +1,7 @@
 <section class="container event-item-container">
   <div id="<%= dom_id event %>" class="event-item">
     <h1><%= event.title %></h1>
-    <a href="#"><%= event.place %></a>
+    <a href="#" class="link"><%= event.place %></a>
     <div class="event-item-img">
       <%= image_tag event.image, width: "100%" %>
     </div>
@@ -12,7 +12,7 @@
         </h4>
         <div class="event-item-tags">
           <% event.tags.each do |tag| %>
-            <div class="text-white p-2 m-1 bg-danger rounded"><%= tag.label %></div>
+            <div class="event-label text-white bg-danger rounded"><%= tag.label %></div>
           <% end %>
         </div>
         <hr>
@@ -22,7 +22,7 @@
             </div>
             <div>
               <h6>Designed by</h5>
-              <a class="ml-1" href="/users/<%= event.organizer_id %>"><%= User.find(event.organizer_id).username.camelize %></a>
+              <a class="ml-1 link" href="/users/<%= event.organizer_id %>"><%= User.find(event.organizer_id).username.camelize %></a>
             </div>
           </div>
         <hr>
@@ -31,29 +31,28 @@
             <br>
             <strong><%= event.places_left %> Places left</strong>
           <% else %>
-            <strong class="txt">Subscriptions out!</strong>
+            <strong class="text-danger">Subscriptions out!</strong>
           <% end %>
         </p>
       </div>
       <div class="event-item-right">
-        
         <p>
-          <strong class="txt">Price:</strong>
+          <strong>Price:</strong>
           <br>
           <%= event.price %>€
         </p>
         <p>
-          <strong class="txt">Min age:</strong>
+          <strong>Min age:</strong>
           <br>
           <%= event.min_age %>
         </p>
         <p>
-          <strong class="txt">Date event:</strong>
+          <strong>Date event:</strong>
           <br>
           <%= event.date_event.strftime("%d, %B, %Y at %H:%M") %>
         </p>
         <p>
-          <strong class="txt">Duration time:</strong>
+          <strong>Duration time:</strong>
           <br>
           <%= event.duration_time %> H 
         </p>
