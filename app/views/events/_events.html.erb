@@ -1,6 +1,6 @@
 <% @events.each do |event| %>
   <div id="events" class="event-items">
-    <a href="/events/<%= event.id %>">
+    <a class="link-event" href="/events/<%= event.id %>">
       <div class="event-img">
         <%= image_tag event.image %>
       </div>
@@ -8,7 +8,7 @@
       <p style="min-height:50px; max-height:90px; font-weight:100; overflow:hidden;"> <%= event.description %> </p>
       <p> <%= event.date_event %> </p>
       <p>
-        <%= link_to "Show this event", event, class: "txt" %>
+        <%= link_to "Show this event", event, class: "link show" %>
       </p>
     </a>
   </div>
