@@ -25,6 +25,7 @@
             <button class="btn bg-logo"><a href="/users/follow/<%= @user.id %>" class="ban text-white">Follow</a></button> 
           <% end %>
         </div>
+
         <div class="ban">
           <p class="txt-light"><%= @user.role.camelcase %></p>
           <% if user_session && @user.role != "banned" && current_user.id != @user.id && current_user.role == "admin" %>
@@ -32,6 +33,7 @@
           <% end %>
           <% if user_session && @user.role == "banned" && current_user.id != @user.id && current_user.role == "admin" %>
             <button class="btn bg-logo"><a href="/users/unban/<%=@user.id%>" class="text-white">Unban user</a></button>
+
           <% end %>
         </div>
         <hr>

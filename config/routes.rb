@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   namespace :admin do 
     resources :tags
   end
+
   resources :events do
     resources :inscriptions
   end
+
+  resources :locations
 
   root to: "events#index"
   get "/users/:id", to: "users#show"
