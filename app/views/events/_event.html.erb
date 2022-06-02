@@ -2,7 +2,7 @@
   <div id="<%= dom_id event %>" class="event-item">
     <h1><%= event.title %></h1>
 
-    <a href="#" class="link"><%= event.place %></a>
+    <a href="/locations/<%= @position.id %>" class="link"><%= event.place %></a>
 
     <div class="event-item-img">
       <%= image_tag event.image, width: "100%" %>

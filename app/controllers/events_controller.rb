@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
   def show
     @event
+    @position = Location.find_by( address: @event.place )
   end
   
   def new
