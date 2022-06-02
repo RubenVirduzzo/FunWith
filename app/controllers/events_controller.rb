@@ -25,10 +25,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @location = Location.find_by( address: @event.place ) ? nil : Location.create({"address" => event_params[:place]}) 
     @event.organizer_id = current_user.id
-
     respond_to do |format|
-      if @event.save
+      if @event.save 
         format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,6 +37,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @location = Location.find_by( address: @event.place ) ? nil : Location.create({"address" => event_params[:place]}) 
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }

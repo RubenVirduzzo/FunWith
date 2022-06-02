@@ -1,17 +1,21 @@
-<div id="<%= dom_id location %>">
-  <p>
-    <strong>Address:</strong>
-    <%= location.address %>
-  </p>
+<div data-controller="maps" id="<%= dom_id location %>">
+  <%= form_with(model: location) do |f| %>
 
-  <p>
-    <strong>Latitude:</strong>
-    <%= location.latitude %>
-  </p>
+    <div id="searchBoxContainer">
+      <%= f.label :address, style: "display: block" %>
+      <%= f.text_field :address, id: "searchBox", autocomplete: "off", class: "rounded" %>
+    </div>
 
-  <p>
-    <strong>Longitude:</strong>
-    <%= location.longitude %>
-  </p>
+    <div>
+      <%= f.text_field :latitude, id: "place_latitude", data: {"maps-target": "latitude"}, style: "display: none" %>
+    </div>
 
+    <div>
+      <%= f.text_field :longitude, id: "place_longitude", data: {"maps-target": "longitude"}, style: "display: none"  %>
+    </div> 
+    
+    <div data-maps-target="myMap" style="width:50vw; height:50vh;"></div>
+  <% end %>
 </div>
+
+

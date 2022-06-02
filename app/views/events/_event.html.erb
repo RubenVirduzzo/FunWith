@@ -1,7 +1,7 @@
 <section class="container event-item-container">
   <div id="<%= dom_id event %>" class="event-item">
     <h1><%= event.title %></h1>
-    <a href="#"><%= event.place %></a>
+    <a href=""><%= event.place %></a>
     <div class="event-item-img">
       <%= image_tag event.image, width: "100%" %>
     </div>
@@ -55,7 +55,7 @@
         <p>
           <strong class="txt">Duration time:</strong>
           <br>
-          <%= event.duration_time.strftime("%H,%M hours") %>
+          <%= event.duration_time %>
         </p>
         <% if current_user.id != event.organizer_id && !current_user.banned? %>
 

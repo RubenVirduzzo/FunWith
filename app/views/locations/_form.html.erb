@@ -1,4 +1,3 @@
-<%= form_with(model: location) do |form| %>
   <% if location.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -10,12 +9,28 @@
       </ul>
     </div>
   <% end %>
+<div data-controller="maps">
+  <%= form_with(model: location) do |f| %>
 
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div>
+      <%= f.label :address, style: "display: block" %>
+      <%= f.text_field :address, id: "searchbox" %>
+    </div>
+
+    <div>
+      <%= f.label :latitude, style: "display: block" %>
+      <%= f.text_field :latitude, id: "place_latitude", data: {"maps-target": "latitude"} %>
+    </div>
+
+    <div>
+      <%= f.label :longitude, style: "display: block" %>
+      <%= f.text_field :longitude, id: "place_longitude", data: {"maps-target": "longitude"}  %>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+    
+    <div data-maps-target="myMap" style="width:50vw; height:50vh;"></div>
+  <% end %>
+</div>

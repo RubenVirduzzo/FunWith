@@ -27,10 +27,10 @@
         </div>
         <div class="d-flex align-items-baseline justify-content-between">
           <p class="txt-light mr-5"><%= @user.role.camelcase %></p>
-          <% if user_session && @user.role != "banned" && current_user.id != @user.id && current_user.role == "admin" %>
+          <% if user_session && @user.role != "banned" && current_user.id != @user.id && current_user.admin? %>
             <button class="btn btn-danger"><a href="/users/ban/<%=@user.id%>" class="ban text-white">Ban user</a></button>
           <% end %>
-          <% if user_session && @user.role == "banned" && current_user.id != @user.id && current_user.role == "admin" %>
+          <% if user_session && @user.role == "banned" && current_user.id != @user.id && current_user.admin? %>
             <button class="btn bg-logo"><a href="/users/unban/<%=@user.id%>" class="ban text-white">Unban user</a></button>
           <% end %>
         </div>
