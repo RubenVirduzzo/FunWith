@@ -2,8 +2,9 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   validates :fullname, presence: true, length: { maximum: 30 }
-  validates :username, presence: true, length: { maximum: 13 }, uniqueness: true
+  validates :username, presence: true, length: { maximum: 12 }, uniqueness: true
   validates :date_of_birth, presence: true
   validate :registrable?
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
@@ -19,13 +20,13 @@ class User < ApplicationRecord
   has_many :follower_user, through: :passive_friendship, source: :follower_user
 
   def registrable?
-    if age < 9
-      errors.add( :date_of_birth, 'You should be over 9 years old.' )
-    end
+    return errors.add( :date_of_birth, 'must be at least 9 years old.' ) if !self.date_of_birth
+    errors.add( :date_of_birth, 'You should be over 9 years old.' ) if age < 9 
+    
   end
 
   def age
-    (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor
+    (( Time.zone.now - self.date_of_birth ) /  1.year.seconds).floor 
   end
 
   def underage?

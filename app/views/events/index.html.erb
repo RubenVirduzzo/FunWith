@@ -1,11 +1,11 @@
-<section class="index-section">
+<section>
   <% if user_session %>
     <%= render "nav_events" %>
     <%= render "search_form" %>
 
     <% if current_user && @events.present? %>
-      <div class=" mt-5 text-center">
-        <%= link_to "Add event", new_event_path, class: "txt" %>
+      <div class="mt-3 text-center">
+        <%= link_to "Add event", new_event_path, class: "link" %>
       </div>
     <% end %>
   
@@ -14,7 +14,7 @@
         <%= render "events" %>
       </div>
     <% else %>
-      <div class=" mt-5 text-center">
+      <div class= mt-5 text-center">
         <h6>
         There are no events yet, add one!
         <h6>
@@ -24,7 +24,7 @@
 
    
   <% else %>
-    <div class="d-flex flex-column w-100 align-items-center">
+    <div class="d-flex flex-column w-100 align-items-center text-center">
 
       <%= image_tag "FunWith.png", width: 300, height: 300 %>
       <h5>Subscribe if you want to enjoy interesting and fun events near you!</h5>

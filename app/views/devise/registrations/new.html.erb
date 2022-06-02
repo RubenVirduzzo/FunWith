@@ -1,31 +1,30 @@
 <section class="container d-flex flex-column justify-content-around align-items-center p-2">
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="form-div p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
+  <div class="form-div form-new p-5 d-flex flex-column justify-content-around align-items-center text-center rounded">
   
     <h2 class="pl-1 pb-2">Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <div class="field form-group">
-        <%= f.text_field :fullname, autofocus: true, autocomplete: "fullname", class: "form-group text-center border-0 border-0", placeholder: "Fullname" %>
+        <%= f.text_field :fullname, autofocus: true, autocomplete: "fullname", class: "form-group text-center  ", placeholder: "Fullname" %>
       </div>
 
       <div class="field form-group">
-        <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-group text-center border-0", placeholder: "Username" %>
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-group text-center ", placeholder: "Username" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :date_of_birth %><br />
-        <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class: "form-group text-center border-0" %>
+        <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class: "form-group text-center " %>
       </div>
       
       <div class="field d-block">
-        <%= f.label :description %><br/>
-        <%= f.text_area :description, autocomplete: "image" %>
+        <%= f.text_area :description, placeholder: "Description", class: "text-center m-3" %>
       </div>
 
       <div class="field form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-group text-center border-0", placeholder: "E-mail" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-group text-center ", placeholder: "E-mail" %>
       </div>
 
       <div class="field form-group">
@@ -33,15 +32,15 @@
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br>
         
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-group text-center border-0 mt-2", placeholder: "Password"  %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-group text-center  mt-2", placeholder: "Password"  %>
       </div>
 
       <div class="field form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-group text-center border-0", placeholder: "Repeat password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-group text-center ", placeholder: "Repeat password" %>
       </div>
 
-      <div class="field form-group">
-        <%= f.file_field :image %>
+      <div class="field form-group image-field-signup">
+        <%= f.file_field :image, style: "style: font-size: 20px; opacity: .6; color:black;" %>
       </div>
 
       <div class="actions m-2">

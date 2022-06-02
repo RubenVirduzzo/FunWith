@@ -12,6 +12,7 @@ gem "sqlite3", "~> 1.4"
 
 gem 'geocoder'
 
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"

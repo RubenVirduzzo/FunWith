@@ -15,7 +15,7 @@
 
       <% end %>
     
-    <div class="form-div m-5 p-5 d-flex flex-column  align-items-center w-100 text-center rounded">
+    <div class="form-div form-new m-5 p-5 d-flex flex-column  align-items-center text-center rounded">
       
       <h1>Event</h1>
 
@@ -29,12 +29,14 @@
 
       <div>
           <%= form.label :date_event, style: "display: block" %>
-          <%= form.datetime_field :date_event, class: "text-center m-1" %>
+          <%= form.datetime_field :date_event, class: "text-center m-1 mb-3" %>
       </div>
 
       <div>
           <%= form.label :duration_time, style: "display: block" %>
-          <%= form.number_field :duration_time, placeholder: "Duration", class: "text-center", in: 1.00..2000.00, step: 0.50 %>
+
+          <%= form.number_field :duration_time, placeholder: "hours", class: "text-center w-75 ml-2 mb-3" %>
+
       </div>
 
       <div>
@@ -49,20 +51,20 @@
         <%= form.text_field :max_number_of_joiners, placeholder: "Max number of joiners", class: "text-center m-3" %>
       </div>
  
-      <div class="label">
+      <div class="label border">
         <%= form.collection_check_boxes :tag_ids, Tag.order(:label), :id, :label %> 
       </div>
       
       <div>
-        <%= form.number_field :price, placeholder: "Price", class: "text-center", in: 1.00..2000.00, step: 0.50 %>
+        <%= form.number_field :price, placeholder: "Price", class: "text-center", in: 0.00..2000.00, step: 0.50 %>
       </div>
 
       <div>
         <%= form.number_field :min_age, placeholder: "Min age", class: "text-center m-3" %>
       </div>
 
-      <div>
-        <%= form.file_field :image %>
+      <div class="image-field">
+        <%= form.file_field :image, style: "style: font-size: 20px; opacity: .6; color:black;" %>
       </div>
 
       <section class="m-3">
