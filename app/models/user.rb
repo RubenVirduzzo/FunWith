@@ -4,7 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :fullname, presence: true, length: { maximum: 30 }
-  validates :username, presence: true, length: { maximum: 10 }, uniqueness: true
+  validates :username, presence: true, length: { maximum: 12 }, uniqueness: true
   validates :date_of_birth, presence: true
   validate :registrable?
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true

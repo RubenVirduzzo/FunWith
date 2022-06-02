@@ -6,7 +6,7 @@
       </div>
       <h3 style="color:black; font-weight:300;"> <%= event.title %> </h3>
       <p style="min-height:50px; max-height:90px; font-weight:100; overflow:hidden;"> <%= event.description %> </p>
-      <p> <%= event.date_event %> </p>
+      <p> <%= event.date_event.strftime("%d, %B, %Y at %H:%M") %> </p>
       <p>
         <%= link_to "Show this event", event, class: "link show" %>
       </p>
