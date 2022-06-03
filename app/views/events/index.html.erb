@@ -14,11 +14,11 @@
         <%= render "events" %>
       </div>
     <% else %>
-      <div class= mt-5 text-center">
+      <div class="mt-5 text-center">
         <h6>
         There are no events yet, add one!
         <h6>
-        <%= link_to "Add one", new_event_path %>
+        <%= link_to "Add one", new_event_path, class: "link" %>
       </div>
     <% end %>
 

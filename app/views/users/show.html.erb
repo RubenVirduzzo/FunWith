@@ -5,11 +5,6 @@
         <div class="image-profile">
           <%= image_tag @user.image || "avatar.jpeg", height: "200" %>
         </div>
-        <div class="intern">
-          <%= image_tag "pos-icon.png", height: "15" %>
-          <a>Valencia, Spain</a>
-        </div>
-        <hr>
         <a href="/events?search[organizer]=<%= @user.username %>"><%= Event.by_organizer(@user.username).count %> publications</a>
         <hr>
         <a href="/events?search[user_id]=<%= @user.id %>"><%= @user.events.count %> subcribtions</a>

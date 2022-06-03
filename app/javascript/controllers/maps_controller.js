@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
 
     if (document.getElementById("place_latitude").value.length === 0) {
-      var center = [ "38.1940571", "-0.5790753" ]
+      var center = [ "39.4697065", "-0.3763353" ]
     } else {
       var center = [ this.latitudeTarget.value, this.longitudeTarget.value ]
     }

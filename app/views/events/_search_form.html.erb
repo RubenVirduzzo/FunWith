@@ -12,8 +12,15 @@
                 <%= form.date_field :date %>
             </div>
 
-            <div class="place">
-              <%= form.text_field :place, placeholder: "Place" %>
+            <div data-controller="maps">
+              <%= form_with(model: @location) do |f| %>
+                <div id="searchBoxContainer" style="overflow:hidden;">
+                  <%= form.text_field :place, placeholder: "Place", autocomplete:"off", id: "searchBox", class: "text-center"%>
+                </div>
+                  <%= f.text_field :latitude, id: "place_latitude", data: {"maps-target": "latitude"}, class: "d-none" %>
+                  <%= f.text_field :longitude, id: "place_longitude", data: {"maps-target": "longitude"}, class: "d-none" %>
+              <% end %>
+              <div data-maps-target="myMap" class="map" style="display:none;"></div>
             </div>
 
             <div class="w-100 ml-2 mr-2">
