@@ -20,40 +20,33 @@
     <nav class="nav-bar container-fluid">
       <ul>
         <%= image_tag "FunWith.png", class: "mt-1 logo" %>
-        <li class=""><a class="" href="/">Home</a></li>
+        <li><a href="/">Home</a></li>
         <% if current_user %>
-          <li class=""><a class="" href="/events?search[organizer]=<%= current_user.username %>">Your events</a></li>
-          <li class=""><a class="" href="/users/<%= current_user.id %>">Profile</a></li>
+          <li><a href="/events?search[organizer]=<%= current_user.username %>">Your events</a></li>
+          <li><a href="/users/<%= current_user.id %>">Profile</a></li>
         <% end %>
         <% if current_user && current_user.admin? %>
-          <li class=""><a class="" href="/admin/tags">Tags</a></li>
+          <li><a href="/admin/tags">Tags</a></li>
         <% end %>
         <% if !current_user %>   
         <li><a class="btn bg-logo text-white signin" href="/users/sign_in">Sign in</a></li>
         <% end %>
         <% if current_user %>  
-          <li class="">
-            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: " " %>          
+          <li>
+            <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>          
           </li>
         <% end %>
       </ul>
     </nav>
 
-    <div class="div-errors d-flex justify-content-center text-center">
+    <div class="div-errors d-flex mt-2 w-100 justify-content-center text-center">
       <% if notice %>  
-        <p class="notice bg-logo w-25 text-white  rounded"><%= notice %></p>
+        <p class="notice bg-logo w-75 text-white  rounded"><%= notice %></p>
       <% end %> 
       <% if alert %>
-        <p class="alert bg-danger w-25 text-white  rounded"><%= alert %></p>
+        <p class="alert bg-danger w-75 text-white  rounded"><%= alert %></p>
       <% end %> 
     </div>
     <%= yield %>
-    <%# <footer class="nav-bar container-fluid h-25 p-2 border rounded" style="height: 80px;">
-      <ul class="d-flex flex-row justify-content-around align-items-center">
-        <li class=""><a class=" " href="/">About</a></li>
-        <li class=""><a class=" " href="/">Contact</a></li>
-        <li class=""><a class=" " href="/">Help</a></li>
-      </ul>
-    </footer> %>
   </body>
 </html>

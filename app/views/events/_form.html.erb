@@ -44,7 +44,7 @@
             <%= f.text_field :latitude, id: "place_latitude", data: {"maps-target": "latitude"}, class: "d-none" %>
             <%= f.text_field :longitude, id: "place_longitude", data: {"maps-target": "longitude"}, class: "d-none"  %>
         <% end %>
-        <div data-maps-target="myMap" class="rounded" style="width:30vw; height:30vh;"></div>
+        <div data-maps-target="myMap" class="map" style="min-width:1vw; min-height:1vh;"></div>
       </div>
       <div>
         <%= form.text_field :min_number_of_joiners, placeholder: "Min number of joiners", class: "text-center m-3" %>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="image-field ml-3">
-        <%= form.file_field :image, style: "margin-left:20px; font-size: 20px; opacity: .6; color:black;" %>
+        <%= form.file_field :image, style: "opacity: .6; color:black;" %>
       </div>
 
       <section class="m-3">
