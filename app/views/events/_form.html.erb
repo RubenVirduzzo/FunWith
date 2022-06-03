@@ -15,32 +15,37 @@
 
       <% end %>
     
+
     <div class="form-div form-new d-flex flex-column align-items-center text-center rounded">
       
-      <h1>Event</h1>
 
+      <h1>Event</h1>
       <div class="d-flex">
         <%= form.text_field :title, placeholder: "Title", class: "text-center m-3" %>
       </div>
-
       <div>
         <%= form.text_area :description, placeholder: "Description", class: "text-center m-3" %>
       </div>
-
       <div>
           <%= form.label :date_event, style: "display: block" %>
           <%= form.datetime_field :date_event, class: "text-center m-1 mb-3" %>
       </div>
-
       <div>
           <%= form.label :duration_time, style: "display: block" %>
           <%= form.number_field :duration_time, placeholder: "hours", class: "text-center w-75 ml-2 mb-3" %>
       </div>
-
       <div>
-        <%= form.text_field :place, placeholder: "Place", class: "text-center m-3" %>
       </div>
-
+      <div data-controller="maps">
+        <%= form_with(model: @event) do |f| %>
+          <div id="searchBoxContainer">
+            <%= form.text_field :place, placeholder: "Place", autocomplete:"off", id: "searchBox", class: "text-center m-3"%>
+          </div>
+            <%= f.text_field :latitude, id: "place_latitude", data: {"maps-target": "latitude"}, class: "d-none" %>
+            <%= f.text_field :longitude, id: "place_longitude", data: {"maps-target": "longitude"}, class: "d-none"  %>
+        <% end %>
+        <div data-maps-target="myMap" class="rounded" style="width:30vw; height:30vh;"></div>
+      </div>
       <div>
         <%= form.text_field :min_number_of_joiners, placeholder: "Min number of joiners", class: "text-center m-3" %>
       </div>
@@ -61,8 +66,8 @@
         <%= form.number_field :min_age, placeholder: "Min age", class: "text-center m-3" %>
       </div>
 
-      <div class="image-field">
-        <%= form.file_field :image, style: "style: font-size: 20px; opacity: .6; color:black;" %>
+      <div class="image-field ml-3">
+        <%= form.file_field :image, style: "margin-left:20px; font-size: 20px; opacity: .6; color:black;" %>
       </div>
 
       <section class="m-3">

@@ -1,7 +1,9 @@
 <section class="container event-item-container">
   <div id="<%= dom_id event %>" class="event-item">
     <h1><%= event.title %></h1>
-    <a href="#" class="link"><%= event.place %></a>
+
+    <a href="/locations/<%= @position.id %>" class="link"><%= event.place %></a>
+
     <div class="event-item-img">
       <%= image_tag event.image, width: "100%" %>
     </div>
@@ -54,7 +56,9 @@
         <p>
           <strong>Duration time:</strong>
           <br>
+
           <%= event.duration_time %> H 
+
         </p>
         <% if current_user.id != event.organizer_id && !current_user.banned? %>
 

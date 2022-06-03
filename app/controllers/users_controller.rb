@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @friend_list = @user.follower_user 
       @active = true
     end
+
   end
 
   def ban

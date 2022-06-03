@@ -1875,8 +1875,26 @@ input {
   /* ----------------------- edit-profile ----------------------- */
   
   .image-edit {
-    padding-left: 110px;
+    padding-left: 120px;
     margin: 30px;
     margin-top: 0;
+  }
+
+  /* ----------------------- Maps Show ----------------------- */
+  
+  .container-maps {
+    width: fit-content; 
+    height: fit-content; 
+    overflow: hidden; 
+    border-radius:400px;
+    box-shadow: 0 4px 10px #a7a7a7;
+  }
+
+  .last-location {
+    padding: 50px;
+  }
+
+  .last-location button {
+    margin: 20px;
   }
 }
