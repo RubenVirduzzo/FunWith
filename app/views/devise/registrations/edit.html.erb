@@ -1,6 +1,6 @@
-<section class="container d-flex flex-column justify-content-around align-items-center col-12 p-2">
+<section class="container d-flex flex-column justify-content-around align-items-center col-12">
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="form-div form-new p-5 d-flex flex-column justify-content-around align-items-center text-center ">
+  <div class="form-div form-new d-flex flex-column justify-content-around align-items-center text-center ">
   
     <h2 class="pl-1 pb-2">Edit</h2>
 
@@ -22,7 +22,7 @@
         <%= f.text_area :description, placeholder: "Description" %>
       </div>
 
-      <div class="field d-flex flex-column align-items-center image-edit text-center">
+      <div class="field d-flex flex-column align-items-center image-edit image-field text-center">
         <%= image_tag resource.image, width: "50", class:"img" %>
         <%= f.file_field :image, autocomplete: "image", style: "style: font-size: 20px; opacity: .6; color:black;" %>
       </div>
