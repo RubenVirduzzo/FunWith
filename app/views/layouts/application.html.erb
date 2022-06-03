@@ -19,7 +19,7 @@
    
     <nav class="nav-bar container-fluid">
       <ul>
-        <%= image_tag "FunWith.png", width: 60, height: 60, class: "m-1" %>
+        <%= image_tag "FunWith.png", class: "mt-1 logo" %>
         <li class=""><a class="" href="/">Home</a></li>
         <% if current_user %>
           <li class=""><a class="" href="/events?search[organizer]=<%= current_user.username %>">Your events</a></li>
@@ -29,7 +29,7 @@
           <li class=""><a class="" href="/admin/tags">Tags</a></li>
         <% end %>
         <% if !current_user %>   
-        <li class=""><a class="btn bg-logo text-white" href="/users/sign_in">Sign in</a></li>
+        <li><a class="btn bg-logo text-white signin" href="/users/sign_in">Sign in</a></li>
         <% end %>
         <% if current_user %>  
           <li class="">
