@@ -1,12 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<div class="text-center">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @location %>
+  <%= render @location %>
 
-<div>
-  <% if current_user.admin? %> 
-    <%= link_to "Edit this location", edit_location_path(@location) %> |
-    <%= link_to "Back to locations", locations_path %>
+  <div class="last-location text-center">
+    <% if current_user.admin? %> 
+      <%= link_to "Back to locations", locations_path, class: "link" %>
 
-    <%= button_to "Destroy this location", @location, method: :delete %>
-  <% end %> 
+      <%= button_to "Delete this location", @location, method: :delete, class: "btn bg-logo text-white" %>
+    <% end %> 
+  </div> 
 </div>
