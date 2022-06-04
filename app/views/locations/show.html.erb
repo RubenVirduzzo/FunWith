@@ -3,11 +3,4 @@
 
   <%= render @location %>
 
-  <div class="last-location text-center">
-    <% if current_user.admin? %> 
-      <%= link_to "Back to locations", locations_path, class: "link" %>
-
-      <%= button_to "Delete this location", @location, method: :delete, class: "btn bg-logo text-white" %>
-    <% end %> 
-  </div> 
 </div>

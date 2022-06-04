@@ -9,7 +9,6 @@ class Event < ApplicationRecord
   belongs_to :organizer, class_name: "User",
                       foreign_key: "organizer_id"
 
-
   has_many :inscriptions, dependent: :destroy
   has_many :users, through: :inscriptions
   has_and_belongs_to_many :tags

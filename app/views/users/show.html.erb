@@ -13,22 +13,21 @@
       <div class="profile-left-dx">
         <div class="follows">
           <h1><%= @user.username.camelcase %></h1>
-          <% if current_user.followed_user.include?(@user) && @user != current_user %>
+          <% if current_user.followed_user.include?(@user) && @user != current_user && !current_user.banned? %>
             <button class="btn bg-logo"><a href="/users/unfollow/<%= @user.id %>" class="ban text-white">Unfollow</a></button> 
           <% end %>
-          <% if !current_user.followed_user.include?(@user) && @user != current_user %>
+          <% if !current_user.followed_user.include?(@user) && @user != current_user && !current_user.banned? %>
             <button class="btn bg-logo"><a href="/users/follow/<%= @user.id %>" class="ban text-white">Follow</a></button> 
           <% end %>
         </div>
 
         <div class="ban">
           <p class="txt-light"><%= @user.role.camelcase %></p>
-          <% if user_session && @user.role != "banned" && current_user.id != @user.id && current_user.role == "admin" %>
+          <% if user_session && @user.role != "banned" && current_user.id != @user.id && current_user.admin? %>
             <button class="btn btn-danger"><a href="/users/ban/<%=@user.id%>" class="text-white">Ban user</a></button>
           <% end %>
-          <% if user_session && @user.role == "banned" && current_user.id != @user.id && current_user.role == "admin" %>
+          <% if user_session && @user.role == "banned" && current_user.id != @user.id && current_user.admin? %>
             <button class="btn bg-logo"><a href="/users/unban/<%=@user.id%>" class="text-white">Unban user</a></button>
-
           <% end %>
         </div>
         <hr>
