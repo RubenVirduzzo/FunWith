@@ -2,8 +2,8 @@
   <%= form_with(model: location) do |f| %>
 
     <div id="searchBoxContainer" class="m-3">
-      <%= f.label :address, style: "display: block" %>
-      <%= f.text_field :address, id: "searchBox", autocomplete: "off", class: "rounded" %>
+      <%= f.label location.address %>
+      <%= f.text_field :address, id: "searchBox", autocomplete: "off", style: "display: none" %>
     </div>
 
     <div>

@@ -33,14 +33,22 @@ input {
 
 /* ------------------------------------------- Start navbar layout ------------------------------------------- */
 
-.logo {
-  margin-right: 2vw;
+
+.nav-bar {
+  background-color: white;
+  border-bottom: solid #cacaca;
+  border-width: 1px;
+  font-weight: 600;
 }
 
 .nav-bar ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.logo {
+  margin-right: 2vw;
 }
 
 .nav-bar ul li a {
@@ -53,6 +61,31 @@ input {
   color: #00adb5;
 }
 
+.form-div {
+  color: #4f4f4f;
+}
+
+.form-new textarea {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border-color: #cacaca;
+}
+
+/* -------------------------------------------- Start Intro -------------------------------------------- */
+
+.logo-body img {
+  width: 40vw;
+}
+
+/* -------------------------------------------- End Intro -------------------------------------------- */
+
+/* -------------------------------------------- Start Profile -------------------------------------------- */
+  
+.container-profile {
+  margin-bottom: 5vh;
+  display: flex;
+}
+
 .nav-home {
   margin-top: -30px;
   padding: 0;
@@ -62,14 +95,6 @@ input {
   margin: 0;
   padding: 0;
 }
-
-.nav-bar {
-  background-color: white;
-  border-bottom: solid #cacaca;
-  border-width: 1px;
-  font-weight: 600;
-}
-
 
 .nav-home ul li a {
   font-size: 18px;
@@ -95,14 +120,9 @@ input {
   background: #00adb5;
 }
 
-.link {
-  color: #00adb5;
-}
-
 /* ------------ End Generics ----------- */
 
 /* -------------------------------------------- Nav Tag Home -------------------------------------------- */
-
 
 .tag-label {
   display: flex;
@@ -116,7 +136,6 @@ input {
   margin-bottom: 20px;
   height: 150px;
   width:170px;
-  font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,6 +167,7 @@ input {
 
 .nav-tag {
   display: flex;
+  margin-top: -10px;
   flex-direction: row;
   margin-left: 10px;
   margin-right: 15px;
@@ -222,15 +242,58 @@ input {
 
 /* ------- Bigger ------ */
 
+.profile-left {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-profile {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  width: 200px;
+  margin-bottom: 40px;
+}
+
 @media only screen and (min-width: 360px) and (max-width: 760px) {
+
+  /* ------------ Start Generics ----------- */
 
   * {
     font-size: 3vw;
   }
 
+  /* ------------ End Generics ----------- */
+
+  /* ------------------------------------------- Start navbar layout ------------------------------------------- */
+
+  .nav-bar {
+    height: max-content;
+    font-weight: 500;
+  }
+
+  .nav-bar ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .logo {
+    width: 5vw;
+    height: 5vw;
+    margin-right: 5vw;
+  }
+
+  .nav-bar ul li a {
+    font-size: 2.5vw;
+  }
+
+  /* ------------------------------------------- End navbar layout ------------------------------------------- */
+
   .form-div {
     padding: 20px;
-    color: #4f4f4f;
   }
 
   .form-new {
@@ -243,34 +306,8 @@ input {
     height: 50vw;
     width: 50vw;
   }
-  
-  .form-new textarea {
-    margin-bottom: 30px;
-    border-radius: 10px;
-    border-color: #cacaca;
-  }
-
-
 
   /* ------------------------------------------- Start navbar layout ------------------------------------------- */
-  
-  .nav-bar {
-    height: max-content;
-    background-color: white;
-    border-bottom: solid #cacaca;
-    border-width: 1px;
-    font-weight: 500;
-  }
-
-  .logo {
-    width: 5vw;
-    height: 5vw;
-    margin-right: 5vw;
-  }
-
-  .logo-body img {
-    width: 40vw;
-  }
 
   .logo-body h5 {
     font-size: 3vw;
@@ -287,22 +324,15 @@ input {
     width: 50vw;
   }
 
-  .nav-bar ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
+  .nav-events {
+    height: 45px;
+    padding-top: 5px;
   }
 
-  .nav-bar ul li a {
-    color: #585858;
-    font-size: 2.5vw;
-    transition: .3s;
+  .label {
+    font-size: 13px;
   }
 
-  .nav-bar ul li a:hover {
-    transform: scale(1.08);
-    color: #00adb5;
-  }
 
   /* -------------------------------------------- End navbar layout -------------------------------------------- */
 
@@ -310,8 +340,6 @@ input {
 
   .container-profile {
     padding-top: 20px;
-    margin-bottom: 5vh;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center; 
@@ -319,27 +347,14 @@ input {
 
   .profile-left {
     text-align: center;
-    display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     padding: 20px;
     border: solid #e0e0e0;
     border-bottom: none;
     border-width: 1px;
     border-radius: 10px 10px 0 0;
-  }
-
-  .image-profile {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    border-radius: 12px;
-    width: 200px;
-    margin-bottom: 40px;
   }
 
   .image-profile img {
@@ -474,17 +489,7 @@ input {
 
   /* -------------------------------------------- Start Event -------------------------------------------- */
 
-  
-
   /* --------------------- Start Event Profile --------------------*/
-
-  .event-item-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
-  }
 
   .event-item {
     margin-top: 30px;
@@ -515,7 +520,6 @@ input {
   
   .event-item-right {
     margin-top: 50px;
-    text-align: center;
   }
   
   .div-edit-event {
@@ -649,22 +653,25 @@ input {
 }
 
 @media only screen and (min-width:760px) and (max-width: 1200px) {
+  /* ------------ Start Generics ----------- */
 
   * {
     font-size: 1.5vw;
   }
 
-  /* -------------------------------------------- Start Intro -------------------------------------------- */
+  /* ------------ End Generics ----------- */
 
+  /* ------------------------------------------- Start navbar layout ------------------------------------------- */
+  
   .logo {
     width: 5vw;
     height: 5vw;
     margin-right: 4vw;
   }
 
-  .logo-body img {
-    width: 40vw;
-  }
+  /* ------------------------------------------- End navbar layout ------------------------------------------- */
+
+  /* -------------------------------------------- Start Intro -------------------------------------------- */
 
   .logo-body h5 {
     font-size: 3vw;
@@ -675,7 +682,6 @@ input {
 
   .form-div {
     margin-top: 50px;
-    color: #4f4f4f;
     background: #e5e5e5;
     box-shadow: 0 0 2px  #ababab;
   }
@@ -684,20 +690,17 @@ input {
     width: 40vw;
     padding: 20px;
   }
-  
-  .form-new textarea {
-    margin-bottom: 30px;
-    border-radius: 10px;
-    border-color: #cacaca;
-  }
 
   .image-field {
     padding-left: 60px;
   }
-
   
   /* -------------------------------------------- Home -------------------------------------------- */
   
+  .label {
+    font-size: 16px;
+  }
+
   .filters {
     width: 18vw;
   }
@@ -705,7 +708,6 @@ input {
   .elements {
     margin-left: 7.3%;
   }
-  
   
   .container-search {
     transition: .3s;
@@ -875,22 +877,14 @@ input {
   }
   
   .event-item-right {
-    height: fit-content;
     padding: 10px;
     margin-top: 0;
     margin-left: 20px;
-    text-align: center;
     border-radius: 12px;
     box-shadow: 0 0 10px #e0e0e0;
-    transition: .3s;
   }
-  
-  .event-item-right:hover {
-    transform: scale(1.03);
-  }
-  /* -------------------------------------------- Start Tag -------------------------------------------- */
 
- 
+  /* -------------------------------------------- Start Tag -------------------------------------------- */
 
   /* -------------------------------------------- End Tag -------------------------------------------- */
   
@@ -898,8 +892,6 @@ input {
 
   .container-profile {
     padding-top: 20px;
-    margin-bottom: 5vh;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center; 
@@ -907,27 +899,14 @@ input {
 
   .profile-left {
     text-align: center;
-    display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     padding: 20px;
     border: solid #e0e0e0;
     border-bottom: none;
     border-width: 1px;
     border-radius: 10px 10px 0 0;
-  }
-
-  .image-profile {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    border-radius: 12px;
-    width: 200px;
-    margin-bottom: 40px;
   }
 
   .image-profile img {
@@ -1076,31 +1055,41 @@ input {
 
 @media only screen and (min-width: 1200px) {
 
+  /* ------------ Start Generics ----------- */
+
   * {
     font-size: 20px;
   }
 
-   /* ------------------------------------------- Start navbar layout ------------------------------------------- */
+  /* ------------ End Generics ----------- */
+
+  /* ------------------------------------------- Start navbar layout ------------------------------------------- */
   
   .logo {
     width: 5vw;
     height: 5vw;
     margin-right: 2.5vw;
   }
+  
+  .nav-bar ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ------------------------------------------- End navbar layout ------------------------------------------- */
 
   /* -------------------------------------------- Start Intro -------------------------------------------- */
 
   .logo-body img {
-    width: 40vw;
+    width: 35vw;
   }
 
   .logo-body h5 {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
   }
 
   /* -------------------------------------------- End Intro -------------------------------------------- */
   /* -------------------------------------------- Start Sign up -------------------------------------------- */
-  
   /* -------------------------------------------- End Sign up -------------------------------------------- */
   
   .form-div {
@@ -1108,20 +1097,8 @@ input {
     padding: 50px;
     padding-left: 150px;
     padding-right: 150px;
-    color: #4f4f4f;
     background: #e5e5e5;
     box-shadow: 0 0 2px  #ababab;
-  }
-
-  .nav-bar ul {
-    padding: 0;
-    margin: 0;
-  }
-  
-  .form-new textarea {
-    margin-bottom: 30px;
-    border-radius: 10px;
-    border-color: #cacaca;
   }
   
   .image-field {
@@ -1129,7 +1106,11 @@ input {
   }
   
   /* -------------------------------------------- Home -------------------------------------------- */
-  
+
+  .label {
+    font-size: 20px;
+  }
+
   .filters {
     width: 18vw;
   }
@@ -1137,7 +1118,6 @@ input {
   .elements {
     margin-left: 7.3%;
   }
-  
   
   .container-search {
     transition: .3s;
@@ -1312,20 +1292,12 @@ input {
   }
   
   .event-item-right {
-    height: fit-content;
     padding: 30px;
-    text-align: center;
     border-radius: 12px;
     box-shadow: 0 0 10px #e0e0e0;
-    transition: .3s;
   }
   
-  .event-item-right:hover {
-    transform: scale(1.03);
-  }
   /* -------------------------------------------- Start Tag -------------------------------------------- */
-
- 
 
   /* -------------------------------------------- End Tag -------------------------------------------- */
   
@@ -1333,29 +1305,14 @@ input {
   
   .container-profile {
     padding-top: 5vh;
-    margin-bottom: 5vh;
-    display: flex;
     justify-content: space-between;
   }
   
   .profile-left {
-    display: flex;
-    justify-content: space-between;
     width: 700px;
     padding: 50px;
     box-shadow: 0 0 8px  #e0e0e0;
     border-radius: 10px;
-  }
-  
-  .image-profile {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    border-radius: 12px;
-    width: 200px;
-    margin-bottom: 40px;
   }
   
   .image-profile img {

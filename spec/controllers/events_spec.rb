@@ -58,14 +58,13 @@ RSpec.describe EventsController, type: :controller do
 
     context 'when the user is logged in' do
       before do 
-        sign_in user_second
-        Inscription.create(event_id: event_second.id, user_id: user_second.id)
-        Inscription.create(event_id: third_event.id, user_id: user_second.id)
+        sign_in user_first
+        Inscription.create(event_id: event_second.id, user_id: user_first.id)
         get :index , params: { search: { available: true } }
       end
 
       it "assigns availables @events" do
-        expect(assigns(:events).map(&:id)).to eq([ event_first.id ])
+        expect(assigns(:events).map(&:id)).to eq([ third_event.id ])
       end
     end
 
