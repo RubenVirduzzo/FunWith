@@ -60,21 +60,6 @@ RSpec.describe "/events", type: :request do
     sign_in user_params
   end
 
-  describe "GET /index" do
-    it "renders a successful response" do
-      create( :event, organizer_id: user_params.id )
-      get events_url
-      expect( response ).to be_successful
-    end
-  end
-
-  describe "GET /show" do
-    it "renders a successful response" do
-      get event_url create( :event, organizer_id: user_params.id )
-      expect( response ).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "renders a successful response" do
       create( :event, organizer_id: user_params.id )
