@@ -63,6 +63,7 @@ input {
 
 .form-div {
   color: #4f4f4f;
+  overflow: hidden;
 }
 
 .form-new textarea {
@@ -257,7 +258,7 @@ input {
   margin-bottom: 40px;
 }
 
-@media only screen and (min-width: 360px) and (max-width: 760px) {
+@media only screen and  (max-width: 760px) {
 
   /* ------------ Start Generics ----------- */
 
@@ -539,6 +540,8 @@ input {
 
   .container-search-bar {
     padding: 3px;
+    margin-bottom: 50px;
+    height: 8vw;
     margin-top: 20px;
     box-shadow: 0 0 8px  #e0e0e0;
     border-radius: 30px;
@@ -718,6 +721,9 @@ input {
   
   .container-search-bar {
     padding: 10px;
+    padding-top: 5px;
+    margin-bottom: 50px;
+    height: 4vw;
     width: fit-content;
     margin-top: 20px;
     box-shadow: 0 0 8px  #e0e0e0;
@@ -1127,6 +1133,8 @@ input {
   
   .container-search-bar {
     padding: 10px;
+    height: 50px;
+    margin-bottom: 50px;
     width: fit-content;
     margin-top: 20px;
     box-shadow: 0 0 8px  #e0e0e0;
@@ -1307,6 +1315,7 @@ input {
   
   .profile-left {
     width: 700px;
+    min-height: 550px;
     padding: 50px;
     box-shadow: 0 0 8px  #e0e0e0;
     border-radius: 10px;
