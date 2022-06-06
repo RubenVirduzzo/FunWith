@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   validates :date_event, presence: true
   validates :duration_time, presence: true
   validates :place, presence: true
-  validates :min_age, presence: true, numericality: { only_integer: true }
+  validates :min_age, presence: true, numericality: { only_integer: true, :greater_than_or_equal_to => 0 } 
   validates :image, presence: true
 
   belongs_to :organizer, class_name: "User",
@@ -22,7 +22,6 @@ class Event < ApplicationRecord
   scope :by_follows, ->(follows) { where( organizer_id: follows ) }
 
   def self.available_for(user)
-    # Event.joins(:inscriptions).where.not("user_id != ?", user.id).or(where("user_id == ?", "")).where.not(organizer_id: user.id).where(  "min_age <= ?", user.age )
     Event.where.not(organizer_id: user.id).and( Event.where( "min_age <= ?", user.age )) - user.inscriptions.map(&:event) - Event.all.select{|event| event.completed?}
   end
 
@@ -42,3 +41,4 @@ class Event < ApplicationRecord
     Event.all.pluck(:place).unique
   end
 end
+
