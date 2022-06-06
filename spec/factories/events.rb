@@ -4,7 +4,7 @@ FactoryBot.define do
     description { "first" } 
     date_event { "2022-05-11" } 
     duration_time { "10:15:00.000" } 
-    place { "Malvarosa" } 
+    place { "La Malva-Rosa, Valencia, Spain" } 
     min_number_of_joiners { 1 } 
     max_number_of_joiners { 10 } 
     price { "5.0" } 
