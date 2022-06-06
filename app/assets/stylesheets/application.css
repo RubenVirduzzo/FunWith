@@ -193,7 +193,6 @@ input {
 
 .index-tag a {
   color: #717171;
-  font-size: 12px;
 }
 
 .index-tag a:hover {
@@ -698,7 +697,7 @@ input {
   /* -------------------------------------------- Home -------------------------------------------- */
   
   .label {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .filters {
@@ -1058,7 +1057,7 @@ input {
   /* ------------ Start Generics ----------- */
 
   * {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   /* ------------ End Generics ----------- */
@@ -1094,9 +1093,8 @@ input {
   
   .form-div {
     margin-top: 50px;
-    padding: 50px;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background: #e5e5e5;
     box-shadow: 0 0 2px  #ababab;
   }
@@ -1189,7 +1187,6 @@ input {
   }
   
   .form-new {
-    width: 40vw;
     margin-bottom: 50px;
   }
   

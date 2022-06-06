@@ -14,9 +14,8 @@ class UsersController < ApplicationController
 
   def ban
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.banned!
-    end
+    @user.banned! if current_user.admin?
+    
     respond_to do |format|
       format.html { redirect_to "/users/#{@user.id}", notice: "#{@user.username} was successfully banned." }
     end
@@ -24,9 +23,8 @@ class UsersController < ApplicationController
 
   def unban
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.member!
-    end
+    @user.member! if current_user.admin?
+    
     respond_to do |format|
       format.html { redirect_to "/users/#{@user.id}", notice: "#{@user.username} was successfully unbanned." }
     end
