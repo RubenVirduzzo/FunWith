@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :date_of_birth, presence: true
   validate :registrable?
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
+  validates :image, presence: true
 
   enum :role, {admin: 0, member: 1, banned: 2}, default: :member
   
@@ -20,7 +21,7 @@ class User < ApplicationRecord
   has_many :follower_user, through: :passive_friendship, source: :follower_user
 
   def registrable?
-    return errors.add( :date_of_birth, 'must be at least 9 years old.' ) if !self.date_of_birth
+    return errors.add( :date_of_birth, 'must be at least 9 years old.' ) unless self.date_of_birth
     errors.add( :date_of_birth, 'You should be over 9 years old.' ) if age < 9 
     
   end
