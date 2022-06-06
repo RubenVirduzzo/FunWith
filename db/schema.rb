@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_04_144753) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_084200) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_144753) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.date "date_event"
+    t.datetime "date_event", precision: nil
     t.float "duration_time"
     t.string "place"
     t.integer "min_number_of_joiners"

@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   validates :duration_time, presence: true
   validates :place, presence: true
   validates :min_age, presence: true, numericality: { only_integer: true }
+  validates :image, presence: true
 
   belongs_to :organizer, class_name: "User",
                       foreign_key: "organizer_id"

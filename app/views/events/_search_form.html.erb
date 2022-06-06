@@ -12,6 +12,7 @@
                 <%= form.date_field :date %>
             </div>
 
+
             <div data-controller="maps">
               <%= form_with(model: @location) do |f| %>
                 <div id="searchBoxContainer" style="overflow:hidden;">
@@ -27,17 +28,18 @@
               <%= form.submit "Search", class: "submit w-100 text-white border" %>
             </div>
           </div>
-        </div>
-        <div class="d-flex">
-          <div class="availables">
-            <%= check_box_tag( "search[available]",  true ) %>
-            <%= label "search[available]", "availables" %>         
+          <div class="d-flex">
+            <div class="availables">
+              <%= check_box_tag( "search[available]",  true ) %>
+              <%= label "search[available]", "availables" %>         
+            </div>
+            <div class="availables">
+              <%= check_box_tag( "search[follows]",  true ) %>
+              <%= label "search[follows]", "follows", class:"mb-5" %>         
+            </div>
           </div>
-          <div class="availables">
-            <%= check_box_tag( "search[follows]",  true ) %>
-            <%= label "search[follows]", "follows", class:"mb-5" %>         
-          </div>
         </div>
+       
       <% end %>
     </div>
   <% end %>

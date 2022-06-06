@@ -11,7 +11,6 @@ class EventsController < ApplicationController
     @events = @events.by_follows( current_user.followed_user.map(&:id) ) if params.dig( :search, :follows ) == "true"
     @events = @events.available_for(current_user) if params.dig( :search, :available ) == "true"
     @events = User.find(params.dig( :search, :user_id ) ).inscriptions.map(&:event) if params.dig( :search, :user_id )
-    
     @events
   end
 

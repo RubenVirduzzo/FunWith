@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :date_of_birth, presence: true
   validate :registrable?
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
+  validates :image, presence: true
 
   enum :role, {admin: 0, member: 1, banned: 2}, default: :member
   
