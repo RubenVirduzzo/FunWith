@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user_event_preference %>
+
+<div>
+  <%= link_to "Edit this user event preference", edit_user_event_preference_path(@user_event_preference) %> |
+  <%= link_to "Back to user event preferences", user_event_preferences_path %>
+
+  <%= button_to "Destroy this user event preference", @user_event_preference, method: :delete %>
+</div>

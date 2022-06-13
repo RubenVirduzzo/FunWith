@@ -1,0 +1,27 @@
+<%= form_with(model: user_event_preference) do |form| %>
+  <% if user_event_preference.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user_event_preference.errors.count, "error") %> prohibited this user_event_preference from being saved:</h2>
+
+      <ul>
+        <% user_event_preference.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :tag_id, style: "display: block" %>
+    <%= form.number_field :tag_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

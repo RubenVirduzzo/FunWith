@@ -1,0 +1,2 @@
+class UserEventPreference < ApplicationRecord
+end

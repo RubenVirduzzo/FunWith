@@ -1,0 +1,2 @@
+module UserEventPreferencesHelper
+end

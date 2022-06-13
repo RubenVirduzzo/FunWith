@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_event_preferences
   devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords' }
   
   namespace :admin do 
