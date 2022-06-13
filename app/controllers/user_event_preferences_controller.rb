@@ -1,27 +1,22 @@
 class UserEventPreferencesController < ApplicationController
   before_action :set_user_event_preference, only: %i[ show edit update destroy ]
 
-  # GET /user_event_preferences or /user_event_preferences.json
   def index
     @user_event_preferences = UserEventPreference.all
   end
 
-  # GET /user_event_preferences/1 or /user_event_preferences/1.json
   def show
   end
 
-  # GET /user_event_preferences/new
   def new
     @user_event_preference = UserEventPreference.new
   end
 
-  # GET /user_event_preferences/1/edit
   def edit
   end
 
-  # POST /user_event_preferences or /user_event_preferences.json
   def create
-    @user_event_preference = UserEventPreference.new(user_event_preference_params)
+    @user_event_preference = UserEventPreference.new( user_event_preference_params )
 
     respond_to do |format|
       if @user_event_preference.save
@@ -34,7 +29,6 @@ class UserEventPreferencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_event_preferences/1 or /user_event_preferences/1.json
   def update
     respond_to do |format|
       if @user_event_preference.update(user_event_preference_params)
@@ -47,7 +41,6 @@ class UserEventPreferencesController < ApplicationController
     end
   end
 
-  # DELETE /user_event_preferences/1 or /user_event_preferences/1.json
   def destroy
     @user_event_preference.destroy
 
@@ -58,12 +51,10 @@ class UserEventPreferencesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user_event_preference
       @user_event_preference = UserEventPreference.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_event_preference_params
       params.require(:user_event_preference).permit(:user_id, :tag_id)
     end

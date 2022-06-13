@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe UserEventPreferencesController, type: :routing do
+RSpec.describe User::UserEventPreferencesController, type: :routing do
   describe "routing" do
     it "routes to #index" do
       expect(get: "/user_event_preferences").to route_to("user_event_preferences#index")
