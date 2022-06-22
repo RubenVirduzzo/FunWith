@@ -14,7 +14,7 @@ class Event < ApplicationRecord
   has_many :users, through: :inscriptions
   has_and_belongs_to_many :tags
   has_one_attached :image
-  has_many :preferences, through: :user_event_preference
+  has_many :interested, class_name: "UserEventPreference"
 
   scope :by_tag, ->(tag_id) { joins(:tags).where("tags.id"=> tag_id) }
   scope :by_place, ->(place) { where( place: place ) }
