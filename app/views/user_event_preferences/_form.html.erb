@@ -1,0 +1,49 @@
+<% @tags.each do |tag| %>
+  <% if !@ids.include?(tag.id) %>
+    <%= form_with( model: [:user, UserEventPreference.new ], method: :post ) do |form| %>
+
+      <div>
+        <%= form.check_box(:tag_id, { checked: @ids.include?(tag.id) }, tag.id) %> 
+        <%= form.label :tag_id, tag.label, class: "nav-link m-2 bg-warning rounded text-white" %>
+        <%= form.submit %>
+
+      </div>
+
+     
+    <% end %>
+  <% else %>
+    <%= form_with( model: [ current_user, @user_preferences.first { |e| e.tag_id == tag.id }], method: :delete ) do |form| %>
+      <div>        
+        <%= form.check_box(:tag_id, { checked: @ids.include?(tag.id) }, tag.id) %> 
+        <%= form.label :tag_id, tag.label, class: "nav-link m-2 bg-warning rounded text-white selected" %>
+        <%= form.submit %>
+      </div>
+      <div>
+        <br>
+        <br>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%# [:user, UserEventPreference.new ],
+, [ current_user , @user_preferences.first { |e| e.tag_id == tag.id }] %>
+
+<%# <%= form_with( model: [:user, @user_preference] ) do |form| %>
+  
+
+  <%# <div class="label border">
+        <%= form.collection_check_boxes :tag_id, Tag.order(:label), :id, :label %> 
+  <%# </div>
+  <br>
+  <br>
+  <div class="label border">
+    <%= form.collection_check_boxes( :tag_id, Tag.order(:label), :id, :label) do |b| %> 
+      <%# <%= b.label { b.label  } %> 
+    <%# <% end %> 
+  <%# </div>
+
+  <div>
+    <%= form.submit %> 
+  <%# </div>
+<% end %> 

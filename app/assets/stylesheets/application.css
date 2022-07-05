@@ -111,6 +111,11 @@ input {
   flex-wrap: wrap;
   justify-content: space-between;
 } 
+
+.selected {
+  background: #ff9500!important;
+}
+
 /* -------------------------------------------- End navbar layout -------------------------------------------- */
 
 /* --------------------------- Start approved --------------------------- */

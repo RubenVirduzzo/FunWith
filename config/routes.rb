@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords' }
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords' } 
+
+  resources :users do
+    resources :user_event_preferences
+  end
   
   namespace :admin do 
     resources :tags
