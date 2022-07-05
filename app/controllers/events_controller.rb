@@ -69,8 +69,4 @@ class EventsController < ApplicationController
                                   :place, :min_number_of_joiners, :max_number_of_joiners, 
                                   :price, :min_age, :image,  tag_ids: [] )
   end
-
-  # def available_for_current_user?
-  #   current_user.present? && params.dig( :search, :available ) == "true"
-  # end
 end

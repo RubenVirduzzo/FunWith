@@ -16,27 +16,25 @@ class UserEventPreferencesController < ApplicationController
   end
 
   def create
-    @user_event_preference = UserEventPreference.new( user_event_preference_params )
-
+    @user_event_preference = UserEventPreference.create( user_id: params[:user_id], tag_id: params[:user_event_preference][:tag_id] )
     respond_to do |format|
       if @user_event_preference.save
-        format.html { redirect_to user_event_preference_url(@user_event_preference), notice: "User event preference was successfully created." }
-        format.json { render :show, status: :created, location: @user_event_preference }
+        format.html { redirect_to "/users/#{ @user.id }/user_event_preferences" }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_event_preference.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
+    # current_user.preferences = params[:tag_id].reject{|element| element.blank? }
+    @user_event_preference.tag_id = params[:user_event_preference][:tag_id].reject{|element| element.blank? }
     respond_to do |format|
-      if @user_event_preference.update(user_event_preference_params)
-        format.html { redirect_to user_event_preference_url(@user_event_preference), notice: "User event preference was successfully updated." }
-        format.json { render :show, status: :ok, location: @user_event_preference }
+
+      if @user_event_preference.valid?
+        format.html { redirect_to "/users/#{ @user.id }/user_event_preferences", notice: "Preferences was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_event_preference.errors, status: :unprocessable_entity }
       end
     end
   end

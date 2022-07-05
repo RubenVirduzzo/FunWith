@@ -9,6 +9,12 @@
         <hr>
         <a href="/events?search[user_id]=<%= @user.id %>"><%= @user.events.count %> subcribtions</a>
         <hr>
+        <div>
+          <% if @user %>
+            <%# <%= link_to "Add your event preferences", "/users/#{ @user.id }/user_event_preferences/#{ @preferences.id }/edit", style: "font-size:14px;" %> 
+            <%= link_to "Add your event preferences", "/users/#{ @user.id }/user_event_preferences", style: "font-size:14px;" %>
+          <% end %>
+        </div>
       </div>
       <div class="profile-left-dx">
         <div class="follows">
