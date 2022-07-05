@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :followed_user, through: :active_friendship, source: :followed_user
   has_many :follower_user, through: :passive_friendship, source: :follower_user
   has_many :preferences, class_name: "UserEventPreference"
+  has_many :tags, through: :user_event_preferences
 
   def registrable?
     return errors.add( :date_of_birth, 'must be at least 9 years old.' ) unless self.date_of_birth
