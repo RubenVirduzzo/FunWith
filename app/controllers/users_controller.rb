@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @friend_list = @user.followed_user
-
     if params.dig( :search, :follower )
       @friend_list = @user.follower_user 
       @active = true
